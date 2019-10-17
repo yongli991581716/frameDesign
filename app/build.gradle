@@ -1,3 +1,4 @@
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -26,11 +27,18 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlin.kotlin_jdk7
-    implementation deps.support.androidx_compat
-    implementation deps.support.androidx_core
-    implementation deps.support.androidx_constraintlayout
-    testImplementation deps.test.junit
-    androidTestImplementation deps.test.runner
-    androidTestImplementation deps.test.espresso
+    implementation project(path: ':basereslib')
+    implementation project(path: ':baselib')
+
+    //基础组件
+    if (!BASE_COMPONENT_APPLICATION.toBoolean()) {
+        implementation project(path: ':basecomponent')
+    }
+
+    //登录组件
+    if (!LOGIN_COMPONENT_APPLICATION.toBoolean()) {
+        implementation project(path: ':logincomponent')
+    }
+
+
 }

@@ -1,11 +1,3 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="logincomponent_AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/logincomponent_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/logincomponent_colorPrimaryDark</item>
-        <item name="colorAccent">@color/logincomponent_colorAccent</item>
-    </style>
-
 </resources>

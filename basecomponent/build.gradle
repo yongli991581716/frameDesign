@@ -1,4 +1,4 @@
-if (LOGIN_COMPONENT_APPLICATION.toBoolean()) {
+if (BASE_COMPONENT_APPLICATION.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -10,8 +10,8 @@ android {
 
 
     defaultConfig {
-        if (LOGIN_COMPONENT_APPLICATION.toBoolean()) {
-            applicationId "com.frameDesign.logincomponent"
+        if (BASE_COMPONENT_APPLICATION.toBoolean()) {
+            applicationId "com.frameDesign.basecomponent"
         }
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
@@ -40,14 +40,18 @@ android {
     }
 
     resourcePrefix "${project.name}_"
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api deps.kotlin.kotlin_jdk7
+    api deps.support.androidx_compat
+    api deps.support.androidx_core
+    api deps.support.androidx_constraintlayout
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.espresso
     implementation project(path: ':basereslib')
     implementation project(path: ':baselib')
-    //基础组件
-    if (!BASE_COMPONENT_APPLICATION.toBoolean()) {
-        implementation project(path: ':basecomponent')
-    }
 }

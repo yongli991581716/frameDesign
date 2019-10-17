@@ -1,1 +1,1 @@
-include ':app', ':acomponent'
+include ':app'

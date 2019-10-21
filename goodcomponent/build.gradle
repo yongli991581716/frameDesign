@@ -1,0 +1,58 @@
+if (GOOD_COMPONENT_APPLICATION.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+//注解需要插件
+apply plugin: 'kotlin-kapt'
+//kotlin编写支持插件
+apply plugin: 'kotlin-android'
+//kotlin编写的扩展插件
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion versions.compileSdk
+    defaultConfig {
+        if (GOOD_COMPONENT_APPLICATION.toBoolean()) {
+            applicationId "com.framedesign.goodcomponent"
+        }
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //资源配置
+    sourceSets {
+        main {
+            if (GOOD_COMPONENT_APPLICATION.toBoolean()) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
+    //资源前缀规范（layout文件名、values下name）
+    resourcePrefix "${project.name}_"
+
+}
+//ali路由注解配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+dependencies {
+    //路由注解处理器
+    kapt deps.arouter.arouter_compiler
+    //基础组件
+    implementation project(path: ':baselib')
+}

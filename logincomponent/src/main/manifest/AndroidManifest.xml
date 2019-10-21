@@ -3,6 +3,9 @@
           package="com.frameDesign.logincomponent">
 
     <application>
+
+        <activity android:name=".LoginActivity">
+        </activity>
     </application>
 
 </manifest>

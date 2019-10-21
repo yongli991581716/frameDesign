@@ -9,9 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/basecomponent" />
             <option value="$PROJECT_DIR$/baselib" />
-            <option value="$PROJECT_DIR$/basereslib" />
+            <option value="$PROJECT_DIR$/commonlib" />
+            <option value="$PROJECT_DIR$/commonreslib" />
+            <option value="$PROJECT_DIR$/goodcomponent" />
             <option value="$PROJECT_DIR$/logincomponent" />
           </set>
         </option>

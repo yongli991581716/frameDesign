@@ -3,12 +3,14 @@ if (LOGIN_COMPONENT_APPLICATION.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+//注解需要插件
+apply plugin: 'kotlin-kapt'
+//kotlin编写支持插件
 apply plugin: 'kotlin-android'
+//kotlin编写的扩展插件
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion versions.compileSdk
-
-
     defaultConfig {
         if (LOGIN_COMPONENT_APPLICATION.toBoolean()) {
             applicationId "com.frameDesign.logincomponent"
@@ -17,7 +19,7 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -28,7 +30,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    //资源配置
     sourceSets {
         main {
             if (LOGIN_COMPONENT_APPLICATION.toBoolean()) {
@@ -38,16 +40,19 @@ android {
             }
         }
     }
-
+    //资源前缀规范（layout文件名、values下name）
     resourcePrefix "${project.name}_"
 }
 
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':basereslib')
-    implementation project(path: ':baselib')
-    //基础组件
-    if (!BASE_COMPONENT_APPLICATION.toBoolean()) {
-        implementation project(path: ':basecomponent')
+//ali路由注解配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
     }
+}
+dependencies {
+    //路由注解处理器
+    kapt deps.arouter.arouter_compiler
+    //基础组件
+    implementation project(path: ':baselib')
 }

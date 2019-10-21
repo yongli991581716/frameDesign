@@ -1,19 +1,23 @@
 apply plugin: 'com.android.library'
-
+//kotlin编写支持插件
+apply plugin: 'kotlin-android'
+//kotlin编写的扩展插件
+apply plugin: 'kotlin-android-extensions'
 android {
-    compileSdkVersion 29
-
+    compileSdkVersion versions.compileSdk
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
+    //项目构建类型
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +28,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //项目库依赖
+    api project(path: ':commonlib')
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

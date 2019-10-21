@@ -1,6 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-buildscript {
+apply plugin: 'com.alibaba.arouter'
+
+buildscript { 
     ext.kotlin_version = '1.3.31'
 
     ext.versions = [
@@ -9,6 +11,7 @@ buildscript {
             'compileSdk': 29,
             'minSdk'    : 19,
             'targetSdk' : 29,
+
     ]
 
 
@@ -30,6 +33,12 @@ buildscript {
                     'kgp'        : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                     'kotlin_jdk7': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             ],
+            //ali路由跳转
+            'arouter': [
+                    'arouter_register': 'com.alibaba:arouter-register:1.0.2',
+                    'arouter_api'     : 'com.alibaba:arouter-api:1.5.0',
+                    'arouter_compiler': 'com.alibaba:arouter-compiler:1.2.2',
+            ],
     ]
 
     repositories {
@@ -42,8 +51,9 @@ buildscript {
         classpath deps.kotlin.kgp
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
+        classpath deps.kotlin.kotlin_jdk7
+        classpath deps.arouter.arouter_register
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
 }
 
 allprojects {

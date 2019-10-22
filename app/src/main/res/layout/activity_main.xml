@@ -7,12 +7,27 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下载"
+            android:onClick="downloadFile"
+            android:gravity="center"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintBottom_toBottomOf="@id/tv_jump_login"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="app壳工程\n跳转到登录组件页面!"
             android:onClick="jumpToGood"
             android:gravity="center"
+            android:id="@+id/tv_jump_login"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

@@ -2,43 +2,60 @@
 
 apply plugin: 'com.alibaba.arouter'
 
-buildscript { 
+buildscript {
     ext.kotlin_version = '1.3.31'
 
     ext.versions = [
-            'kotlin'    : "1.3.31",
-            'gradle'    : "3.4.1",
-            'compileSdk': 29,
-            'minSdk'    : 19,
-            'targetSdk' : 29,
+            'kotlin'      : "1.3.31",
+            'gradle'      : "3.4.1",
+            'compileSdk'  : 29,
+            'minSdk'      : 19,
+            'targetSdk'   : 29,
+            'anko_version': "0.10.5",
 
     ]
 
 
     ext.deps = [
-            'test'   : [
+            'test'     : [
                     'junit'   : "junit:junit:4.12",
                     'runner'  : "androidx.test:runner:1.2.0",
                     'espresso': "androidx.test.espresso:espresso-core:3.2.0",
             ],
-            'android': [
+            'android'  : [
                     'gradlePlugin': "com.android.tools.build:gradle:${versions.gradle}",
             ],
-            'support': [
+            'support'  : [
                     'androidx_compat'          : "androidx.appcompat:appcompat:1.1.0",
                     'androidx_core'            : "androidx.core:core-ktx:1.1.0",
                     'androidx_constraintlayout': "androidx.constraintlayout:constraintlayout:1.1.3",
             ],
-            'kotlin' : [
+            'kotlin'   : [
                     'kgp'        : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                     'kotlin_jdk7': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             ],
             //ali路由跳转
-            'arouter': [
+            'arouter'  : [
                     'arouter_register': 'com.alibaba:arouter-register:1.0.2',
                     'arouter_api'     : 'com.alibaba:arouter-api:1.5.0',
                     'arouter_compiler': 'com.alibaba:arouter-compiler:1.2.2',
             ],
+            'json'     : [
+                    'gson': 'com.google.code.gson:gson:2.8.6'
+            ],
+            'download' : [
+                    'progressroundbtn': 'com.xiaochendev.progressroundbtn:library:2.0.0',
+                    'filedownloader'  : 'com.liulishuo.filedownloader:library:1.7.6',
+            ],
+            'anko'     : [
+                    'ankoCommons': "org.jetbrains.anko:anko-commons:${versions.anko_version}",
+            ],
+            'animation': [
+                    'lottie'         : 'com.airbnb.android:lottie:2.7.0',
+                    'nineoldandroids': 'com.nineoldandroids:library:2.4.0',
+            ],
+            'logger'   : 'com.orhanobut:logger:2.2.0',
+
     ]
 
     repositories {
@@ -53,7 +70,8 @@ buildscript {
         // in the individual module build.gradle files
         classpath deps.kotlin.kotlin_jdk7
         classpath deps.arouter.arouter_register
-    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version" }
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
 }
 
 allprojects {

@@ -5,6 +5,8 @@ import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baseres.const.ConstConfig
+import com.frameDesign.commonlib.CommHelper
+import com.frameDesign.commonlib.uitls.DownloadHelper
 
 /**
  * Created by liyong on 2019-10-21.
@@ -22,6 +24,10 @@ abstract class BaseApplication : MultiDexApplication() {
         initDatas()
         //初始化路由
         initRouter()
+        //下载管理器初始化
+        DownloadHelper.initDownload(mCtx)
+        //公共库组件公用上下文初始化
+        CommHelper.init(mCtx)
     }
 
     /**

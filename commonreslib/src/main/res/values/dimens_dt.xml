@@ -1,0 +1,68 @@
+<!--
+  Copyright 2011 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+<resources>
+
+
+    <dimen name="dt_1">1dp</dimen>
+    <dimen name="dt_2">2dp</dimen>
+    <dimen name="dt_3">3dp</dimen>
+    <dimen name="dt_4">4dp</dimen>
+    <dimen name="dt_5">5dp</dimen>
+    <dimen name="dt_6">6dp</dimen>
+    <dimen name="dt_8">8dp</dimen>
+    <dimen name="dt_9">9dp</dimen>
+    <dimen name="dt_10">10dp</dimen>
+    <dimen name="dt_11">11dp</dimen>
+    <dimen name="dt_12">12dp</dimen>
+    <dimen name="dt_13">13dp</dimen>
+    <dimen name="dt_14">14dp</dimen>
+    <dimen name="dt_15">15dp</dimen>
+    <dimen name="dt_16">16dp</dimen>
+    <dimen name="dt_17">17dp</dimen>
+    <dimen name="dt_18">18dp</dimen>
+    <dimen name="dt_19">19dp</dimen>
+    <dimen name="dt_20">20dp</dimen>
+    <dimen name="dt_21">21dp</dimen>
+    <dimen name="dt_24">24dp</dimen>
+    <dimen name="dt_22">22dp</dimen>
+    <dimen name="dt_25">25dp</dimen>
+    <dimen name="dt_26">26dp</dimen>
+    <dimen name="dt_27">27dp</dimen>
+    <dimen name="dt_28">28dp</dimen>
+    <dimen name="dt_29">29dp</dimen>
+    <dimen name="dt_30">30dp</dimen>
+    <dimen name="dt_31">31dp</dimen>
+    <dimen name="dt_32">32dp</dimen>
+    <dimen name="dt_33">33dp</dimen>
+    <dimen name="dt_34">34dp</dimen>
+    <dimen name="dt_35">35dp</dimen>
+    <dimen name="dt_36">36dp</dimen>
+    <dimen name="dt_40">40dp</dimen>
+    <dimen name="dt_44">44dp</dimen>
+    <dimen name="dt_48">44dp</dimen>
+    <dimen name="dt_50">50dp</dimen>
+    <dimen name="dt_60">60dp</dimen>
+    <dimen name="dt_64">64dp</dimen>
+    <dimen name="dt_70">70dp</dimen>
+    <dimen name="dt_80">80dp</dimen>
+    <dimen name="dt_86">86dp</dimen>
+    <dimen name="dt_90">90dp</dimen>
+    <dimen name="dt_100">100dp</dimen>
+    <dimen name="dt_156">156dp</dimen>
+    <dimen name="dt_160">160dp</dimen>
+
+
+</resources>

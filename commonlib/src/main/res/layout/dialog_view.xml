@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="285dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_dialog"
+                android:divider="@drawable/shape_divider_line_h"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+            <LinearLayout
+                    android:id="@+id/linearLayout_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dt_20">
+
+                <LinearLayout style="@style/wrap_wrap_h">
+
+                    <ImageView
+                            android:id="@+id/titleIcon"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/ic_launcher_round"
+                            android:visibility="gone" />
+
+                    <TextView
+                            android:id="@+id/title"
+                            style="@style/text_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack"
+                            tools:text="消息提示" />
+                </LinearLayout>
+
+
+                <ScrollView
+                        android:id="@+id/mes_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <TextView
+                                android:id="@+id/message"
+                                style="@style/text_normal"
+                                android:breakStrategy="simple"
+                                android:gravity="center_horizontal"
+                                android:paddingTop="@dimen/dt_5"
+                                android:text="提示消息"/>
+                    </LinearLayout>
+                </ScrollView>
+
+                <LinearLayout
+                        android:id="@+id/cust_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"></LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/linearLayout_listener"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:divider="@drawable/shape_divider_line_v"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                <com.frameDesign.commonlib.views.button.ZqkhTextButton
+                        android:id="@+id/negative"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/cancel"
+                        android:textColor="@color/color999999"
+                        android:textSize="@dimen/font_16" />
+
+
+                <com.frameDesign.commonlib.views.button.ZqkhTextButton
+                        android:id="@+id/positive"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/firm"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/font_16" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:scaleType="fitXY"
+                android:layout_centerHorizontal="true"
+                android:src="@mipmap/ic_launcher_round"
+                android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

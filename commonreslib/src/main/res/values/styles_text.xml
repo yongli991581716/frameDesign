@@ -1,0 +1,14 @@
+<resources>
+
+    <!--title文本样式-->
+    <style name="text_title" parent="@style/wrap_wrap">
+        <item name="android:textColor">@color/color555555</item>
+        <item name="android:textSize">@dimen/font_16</item>
+    </style>
+
+    <!-- 普通文本样式 -->
+    <style name="text_normal" parent="@style/wrap_wrap">
+        <item name="android:textColor">@color/color999999</item>
+        <item name="android:textSize">@dimen/font_14</item>
+    </style>
+</resources>

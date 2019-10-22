@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 填充 -->
+    <solid android:color="@color/colorE8E8E8" />
+    <!-- 定义填充的颜色值 -->
+
+    <size android:height="@dimen/dt_1" />
+    <!-- 宽度和高度 -->
+
+</shape>

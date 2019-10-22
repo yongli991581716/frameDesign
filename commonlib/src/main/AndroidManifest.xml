@@ -1,2 +1,3 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.frameDesign.commonlib"/>
+          package="com.frameDesign.commonlib">
+</manifest>

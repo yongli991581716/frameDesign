@@ -36,4 +36,16 @@ dependencies {
     api deps.support.androidx_constraintlayout
     //路由注册依赖
     api deps.arouter.arouter_api
+    //google gson解析库
+    api deps.json.gson
+    //logger解析库
+    api deps.logger
+    //下载库
+    api deps.download.filedownloader
+    api deps.download.progressroundbtn
+    //anko支持库
+    api deps.anko.ankoCommons
+    //动画库
+    api deps.animation.lottie
+
 }

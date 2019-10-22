@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">commonreslib</string>
+
+    <string name="pls_waiting">请稍等……</string>
+    <string name="cancel">取消</string>
+    <string name="firm">确认</string>
+    <string name="known">知道了</string>
 </resources>

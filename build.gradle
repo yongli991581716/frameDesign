@@ -54,6 +54,9 @@ buildscript {
                     'lottie'         : 'com.airbnb.android:lottie:2.7.0',
                     'nineoldandroids': 'com.nineoldandroids:library:2.4.0',
             ],
+            'permission':[
+                    'andpermission':'com.yanzhenjie:permission:2.0.3',
+            ],
             'logger'   : 'com.orhanobut:logger:2.2.0',
 
     ]

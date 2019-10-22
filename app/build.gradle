@@ -27,8 +27,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    //资源前缀规范（layout文件名、values下name）
-    resourcePrefix "${project.name}_"
+    //资源前缀规范（layout文件名、values下name）其他组件模块需添加前缀规范，壳工程非必须
+    //resourcePrefix "${project.name}_"
 }
 
 //ali路由注解配置

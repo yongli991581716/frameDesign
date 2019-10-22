@@ -70,7 +70,6 @@ buildscript {
         // in the individual module build.gradle files
         classpath deps.kotlin.kotlin_jdk7
         classpath deps.arouter.arouter_register
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 

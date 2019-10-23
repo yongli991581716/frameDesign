@@ -5,4 +5,5 @@ package com.frameDesign.commonlib.uitls.permission
  * @author liyong
  * @date 2019-10-22
  */
-data class PermissonBean(var permissions: Array<String>?)
+data class PermissonBean(var permissions: Array<String>) {
+}

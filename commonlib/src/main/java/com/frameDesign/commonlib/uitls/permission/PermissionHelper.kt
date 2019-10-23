@@ -17,7 +17,7 @@ object PermissionHelper {
     /**
      * 权限执行
      */
-    fun execute(permission: PermissonBean, listener: IPermissionListener) {
+    fun execute(permission: PermissonBean, listener: IPermissionListener?=null) {
         mPermissionProduct.execute(permission, listener)
     }
 }

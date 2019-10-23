@@ -1,6 +1,5 @@
 package com.frameDesign.commonlib.uitls.permission
 
-import com.frameDesign.commonlib.CommHelper.mCtx
 import com.yanzhenjie.permission.AndPermission
 
 /**
@@ -10,7 +9,7 @@ import com.yanzhenjie.permission.AndPermission
  */
 class AndPermissionProduct : PermissionProduct() {
     override fun execute(permission: PermissonBean, listener: IPermissionListener?) {
-        AndPermission.with(mCtx).runtime().permission(permission.permissions).onGranted { permissions ->
+        AndPermission.with(permission.activity).runtime().permission(permission.permissions).onGranted { permissions ->
             listener?.onGranted(permission)
         }.onDenied { permissions ->
             listener?.onDenied(permission)

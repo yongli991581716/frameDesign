@@ -24,6 +24,7 @@ buildscript {
             ],
             'android'  : [
                     'gradlePlugin': "com.android.tools.build:gradle:${versions.gradle}",
+                    'flexbox':'com.google.android:flexbox:1.1.1',
             ],
             'support'  : [
                     'androidx_compat'          : "androidx.appcompat:appcompat:1.1.0",
@@ -73,6 +74,7 @@ buildscript {
         // in the individual module build.gradle files
         classpath deps.kotlin.kotlin_jdk7
         classpath deps.arouter.arouter_register
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 

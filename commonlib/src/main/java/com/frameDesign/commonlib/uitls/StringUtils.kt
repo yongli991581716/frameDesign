@@ -233,4 +233,25 @@ object StringUtils {
         val i = str.length - str.replace(cr, "").length
         return i/2
     }
+
+    /**
+     *
+     * @Title: getExternalName
+     *
+     * @Description: Get the url extension
+     *
+     * @param @param
+     * url @param @return @return String @throws
+     */
+    fun getExternalName(url: String): String {
+        var ext = ""
+        if (!TextUtils.isEmpty(url)) {
+            val idx = url.lastIndexOf('.')
+            if (idx > 0) {
+                ext = url.substring(idx)
+            }
+        }
+
+        return ext
+    }
 }

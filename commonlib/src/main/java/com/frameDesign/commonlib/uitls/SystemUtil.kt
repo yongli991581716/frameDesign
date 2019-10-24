@@ -2,6 +2,7 @@ package com.frameDesign.commonlib.uitls
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -385,43 +386,34 @@ object SystemUtil {
         imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS)
     }
 
-//    //强制显示或者关闭系统键盘
-//    fun KeyBoard(txtSearchKey: EditText, status: String) {
-//
-//        val timer = Timer()
-//        timer.schedule(object : TimerTask() {
-//            fun run() {
-//                val m = txtSearchKey.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                if (status == "open") {
-//                    m.showSoftInput(txtSearchKey, InputMethodManager.SHOW_FORCED)
-//                } else {
-//                    m.hideSoftInputFromWindow(txtSearchKey.windowToken, 0)
-//                }
-//            }
-//        }, 300)
-//    }
-//
-//    //通过定时器强制隐藏虚拟键盘
-//    fun TimerHideKeyboard(v: View) {
-//        val timer = Timer()
-//        timer.schedule(object : TimerTask() {
-//            fun run() {
-//                val imm = v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//                if (imm.isActive()) {
-//                    imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0)
-//                }
-//            }
-//        }, 10)
-//    }
 
-//    //输入法是否显示着
-//    fun keyboardIsShowing(et: EditText): Boolean {
-//        var bool = false
-//        val imm = et.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-//        if (imm.isActive) {
-//            bool = true
-//        }
-//        return bool
-//
-//    }
+    /**
+     *
+     * Get the application name.
+     *
+     * @Title: getAppName @Description: TODO @param @param ctx @param @param
+     * pID @param @return @return String @throws
+     */
+    fun getAppName(pID: Int): String? {
+        val am = CommHelper.mCtx.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        val itor = am.runningAppProcesses.iterator()
+        // PackageManager pm = getCtx().getPackageManager();
+        while (itor.hasNext()) {
+            val info = itor.next() as ActivityManager.RunningAppProcessInfo
+            try {
+                if (info.pid == pID) {
+                    // CharSequence c =
+                    // pm.getApplicationLabel(pm.getApplicationInfo(info.processName,
+                    // PackageManager.GET_META_DATA));
+                    return info.processName
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+        }
+
+        return null
+    }
+
 }

@@ -86,7 +86,7 @@
                     android:orientation="horizontal"
                     android:showDividers="middle">
 
-                <com.frameDesign.commonlib.views.button.ZqkhTextButton
+                <com.frameDesign.commonlib.views.button.FDTextButton
                         android:id="@+id/negative"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -99,7 +99,7 @@
                         android:textSize="@dimen/font_16" />
 
 
-                <com.frameDesign.commonlib.views.button.ZqkhTextButton
+                <com.frameDesign.commonlib.views.button.FDTextButton
                         android:id="@+id/positive"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"

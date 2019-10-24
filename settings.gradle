@@ -1,1 +1,1 @@
-include ':app', ':logincomponent', ':baselib', ':commonreslib', ':commonlib', ':goodcomponent'
+include ':app', ':logincomponent', ':baselib', ':commonreslib', ':commonlib', ':goodcomponent', ':annotation_compiler', ':annotation'

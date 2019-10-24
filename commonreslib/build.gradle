@@ -24,6 +24,8 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
+    //依赖注解库
+    api project(path: ':annotation')
     //测试依赖
     testImplementation deps.test.junit
     androidTestImplementation deps.test.runner
@@ -50,5 +52,6 @@ dependencies {
     api deps.animation.lottie
     //权限库
     api deps.permission.andpermission
-
+    //换行布局库
+    api deps.android.flexbox
 }

@@ -8,8 +8,9 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baseres.const.router.RouterLogin
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
-import com.frameDesign.commonlib.uitls.permission.PermissionHelper
+import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
+import com.framedesign.annotation.PreShake
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,8 +19,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
+
     fun readWritePermission(view: View) {
-        PermissionHelper.execute(PermissonBean(
+        PermissionFactory.execute(PermissonBean(
             this,
             arrayOf(
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,

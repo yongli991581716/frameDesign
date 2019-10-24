@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
-
+//注解需要插件
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
@@ -26,5 +27,8 @@ android {
 }
 
 dependencies {
+    //依赖公共资源库
     api project(path: ':commonreslib')
+    //依赖注解处理器库
+    kapt project(path: ':annotation_compiler')
 }

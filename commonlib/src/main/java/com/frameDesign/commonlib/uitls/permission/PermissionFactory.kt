@@ -5,7 +5,7 @@ package com.frameDesign.commonlib.uitls.permission
  * @author liyong
  * @date 2019-10-22
  */
-object PermissionHelper {
+object PermissionFactory {
 
     lateinit var mPermissionProduct: PermissionProduct
 

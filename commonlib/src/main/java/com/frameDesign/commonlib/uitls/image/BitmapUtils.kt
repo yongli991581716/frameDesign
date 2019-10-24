@@ -15,6 +15,7 @@ import android.util.Base64
 import android.view.View
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.io.InputStream
 
 
 /**
@@ -267,7 +268,7 @@ object BitmapUtils {
     }
 
     /**
-     * 获取高斯模糊的图片
+     * 获取高斯模糊的图片 宽高256
      *
      * @param context 上下文对象
      * @param bitmap  传入的bitmap图片
@@ -339,6 +340,59 @@ object BitmapUtils {
         }
         inSampleSize = Math.max(1, inSampleSize)
         return inSampleSize
+    }
+
+    /**
+     * 使用默认缩放比例 宽高：600*1200
+     */
+    fun scaleBitmap(context: Context, res: Any): Bitmap? {
+
+        var bitmap: Bitmap? = null
+        when (res) {
+            is Int -> bitmap = BitmapFactory.decodeResource(context.resources, res, getSampleOptions(context, res))
+            is String -> bitmap = BitmapFactory.decodeFile(res, getSampleOptions(context, res))
+            is ByteArray -> bitmap = BitmapFactory.decodeByteArray(res, 0, res.size, getSampleOptions(context, res))
+            is InputStream -> bitmap = BitmapFactory.decodeStream(res, null, getSampleOptions(context, res))
+        }
+        return bitmap
+    }
+
+
+    /**
+     * 默认控制宽高：600*1200
+     */
+    private fun getSampleOptions(
+        context: Context,
+        res: Any,
+        defaultWidth: Int = 600,
+        defaultHeight: Int = 1200
+    ): BitmapFactory.Options {
+
+        var options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        when (res) {
+            is Int -> BitmapFactory.decodeResource(context.resources, res, options)
+            is String -> BitmapFactory.decodeFile(res, options)
+            is ByteArray -> BitmapFactory.decodeByteArray(res, 0, res.size, options)
+            is InputStream -> BitmapFactory.decodeStream(res, null, options)
+        }
+
+        var width = options.outWidth
+        var height = options.outHeight
+
+        var sampleOption = 1
+        if (width > defaultWidth || height > defaultHeight) {
+            var tempWidht = width / 2
+            var tempHeight = height / 2
+            while (tempWidht > defaultWidth && tempHeight > defaultHeight) {
+                tempWidht /= 2
+                tempHeight /= 2
+                sampleOption *= 2
+            }
+        }
+        options.inJustDecodeBounds = false
+        options.inSampleSize = sampleOption
+        return options
     }
 
 }

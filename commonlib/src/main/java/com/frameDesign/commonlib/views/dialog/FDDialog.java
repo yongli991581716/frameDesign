@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.frameDesign.commonlib.R;
 import com.frameDesign.commonlib.uitls.DensityUtils;
-import com.frameDesign.commonlib.views.button.ZqkhTextButton;
+import com.frameDesign.commonlib.views.button.FDTextButton;
 
 /**
  * 自定义对话框
@@ -19,13 +19,13 @@ import com.frameDesign.commonlib.views.button.ZqkhTextButton;
  * @author liyong
  * @date  2018/2/9.
  */
-public class ZqkhDialog extends Dialog {
+public class FDDialog extends Dialog {
 
     private Context mContext;
 
     // private DialogViewBinding mBinding;
-    private ZqkhTextButton mPositiveBtn;//确定按钮
-    private ZqkhTextButton mNegativeBtn;//取消按钮
+    private FDTextButton mPositiveBtn;//确定按钮
+    private FDTextButton mNegativeBtn;//取消按钮
     private TextView mTitleTv;//消息标题文本
     private ImageView mTitleIv;//消息
     private View mMessageView;//消息布局
@@ -60,7 +60,7 @@ public class ZqkhDialog extends Dialog {
      */
     private float mDimAount = 0.8f;
 
-    public ZqkhDialog(Context context) {
+    public FDDialog(Context context) {
         super(context, R.style.dialog);
         mContext = context;
     }
@@ -82,8 +82,8 @@ public class ZqkhDialog extends Dialog {
      * 初始化界面控件
      */
     private void initView() {
-        mPositiveBtn = (ZqkhTextButton) findViewById(R.id.positive);
-        mNegativeBtn = (ZqkhTextButton) findViewById(R.id.negative);
+        mPositiveBtn = (FDTextButton) findViewById(R.id.positive);
+        mNegativeBtn = (FDTextButton) findViewById(R.id.negative);
         mTitleTv = (TextView) findViewById(R.id.title);
         mTitleIv = (ImageView) findViewById(R.id.titleIcon);
         mMessageTv = (TextView) findViewById(R.id.message);
@@ -183,9 +183,9 @@ public class ZqkhDialog extends Dialog {
         mNegativeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ZqkhDialog.this.dismiss();
+                FDDialog.this.dismiss();
                 if (onNegativeClickListener != null) {
-                    onNegativeClickListener.onClick(ZqkhDialog.this, R.id.negative);
+                    onNegativeClickListener.onClick(FDDialog.this, R.id.negative);
                 }
             }
         });
@@ -193,9 +193,9 @@ public class ZqkhDialog extends Dialog {
         mPositiveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ZqkhDialog.this.dismiss();
+                FDDialog.this.dismiss();
                 if (onPositiveClickListener != null) {
-                    onPositiveClickListener.onClick(ZqkhDialog.this, R.id.positive);
+                    onPositiveClickListener.onClick(FDDialog.this, R.id.positive);
                 }
             }
         });
@@ -312,11 +312,11 @@ public class ZqkhDialog extends Dialog {
         onPositiveClickListener = onClickListener;
     }
 
-    public ZqkhTextButton getPositive() {
+    public FDTextButton getPositive() {
         return mPositiveBtn;
     }
 
-    public ZqkhTextButton getNegative() {
+    public FDTextButton getNegative() {
         return mNegativeBtn;
     }
 

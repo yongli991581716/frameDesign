@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import androidx.core.content.FileProvider
 import com.frameDesign.commonlib.R
 import com.frameDesign.commonlib.expand.toast
-import com.frameDesign.commonlib.views.dialog.ZqkhDialog
+import com.frameDesign.commonlib.views.dialog.FDDialog
 import com.liulishuo.filedownloader.BaseDownloadTask
 import com.liulishuo.filedownloader.DownloadTask
 import com.liulishuo.filedownloader.FileDownloadListener
@@ -62,7 +62,7 @@ object DownloadHelper {
 
         //强制升级没有按钮
         val view = LayoutInflater.from(ctx).inflate(R.layout.download_layout, null)
-        var dialogBuilder: ZqkhDialog? = null
+        var dialogBuilder: FDDialog? = null
         dialogBuilder = if (forceUpdate) {
             DialogUtils.createAlertDialog(ctx as Activity, "升级进度", "",
                 "", { dialog, which -> },

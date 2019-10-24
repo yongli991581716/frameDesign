@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    //项目库依赖
+    //依赖公共库
     api project(path: ':commonlib')
 
 }

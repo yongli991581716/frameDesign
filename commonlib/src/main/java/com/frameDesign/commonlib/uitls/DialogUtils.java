@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import com.frameDesign.commonlib.R;
 import com.frameDesign.commonlib.views.dialog.ProgressDialog;
-import com.frameDesign.commonlib.views.dialog.ZqkhDialog;
+import com.frameDesign.commonlib.views.dialog.FDDialog;
 
 /**
  * 对话框工具
@@ -46,10 +46,10 @@ public class DialogUtils {
         return dialog != null && dialog.isShowing();
     }
 
-    public static ZqkhDialog createNormalDialog(Activity activity, String msg)
+    public static FDDialog createNormalDialog(Activity activity, String msg)
 
     {
-        ZqkhDialog dialog = new ZqkhDialog(activity);
+        FDDialog dialog = new FDDialog(activity);
         dialog.setMessage(msg);
         dialog.setNegativeButton(R.string.known, null);
 
@@ -61,12 +61,12 @@ public class DialogUtils {
     /**
      * 普通对话框 有title
      */
-    public static ZqkhDialog createAlertDialog(Activity activity, int titleId, int messageId,
-                                               int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                               int rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createAlertDialog(Activity activity, int titleId, int messageId,
+                                             int leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                             int rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = createAlertDialog(activity, messageId, leftButton, onLeftClickListener, rightButton, onRightClickListener);
+        FDDialog dialog = createAlertDialog(activity, messageId, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(activity.getResources().getString(titleId));
         return dialog;
     }
@@ -74,12 +74,12 @@ public class DialogUtils {
     /**
      * 普通对话框 有title
      */
-    public static ZqkhDialog createAlertDialog(Activity activity, String title, String message,
-                                               String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                               String rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createAlertDialog(Activity activity, String title, String message,
+                                             String leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
+        FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(title);
         return dialog;
     }
@@ -87,12 +87,12 @@ public class DialogUtils {
     /**
      * 普通对话框 有title
      */
-    public static ZqkhDialog createLeftDialog(Activity activity, String title, String message,
-                                              String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                              String rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createLeftDialog(Activity activity, String title, String message,
+                                            String leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                            String rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
+        FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(title);
         dialog.setTxtGravity(Gravity.LEFT);
         return dialog;
@@ -101,12 +101,12 @@ public class DialogUtils {
     /**
      * 普通对话框 有title
      */
-    public static ZqkhDialog createAlertDialog(Activity activity, int titleId, String message,
-                                               String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                               String rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createAlertDialog(Activity activity, int titleId, String message,
+                                             String leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
+        FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(activity.getResources().getString(titleId));
         return dialog;
     }
@@ -114,12 +114,12 @@ public class DialogUtils {
     /**
      * 普通对话框 无title
      */
-    public static ZqkhDialog createAlertDialog(Activity activity, String message,
-                                               String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                               String rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createAlertDialog(Activity activity, String message,
+                                             String leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
+        FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         return dialog;
     }
 
@@ -134,8 +134,8 @@ public class DialogUtils {
      * @param onRightClickListener
      * @return
      */
-    private static ZqkhDialog createDialog(Activity activity, String message, String leftButton, DialogInterface.OnClickListener onLeftClickListener, String rightButton, DialogInterface.OnClickListener onRightClickListener) {
-        ZqkhDialog dialog = new ZqkhDialog(activity);
+    private static FDDialog createDialog(Activity activity, String message, String leftButton, DialogInterface.OnClickListener onLeftClickListener, String rightButton, DialogInterface.OnClickListener onRightClickListener) {
+        FDDialog dialog = new FDDialog(activity);
         dialog.setMessage(message);
         if (!TextUtils.isEmpty(leftButton)) {
             dialog.setNegativeButton(leftButton, onLeftClickListener);
@@ -154,12 +154,12 @@ public class DialogUtils {
     /**
      * 普通对话框 无title
      */
-    public static ZqkhDialog createAlertDialog(Activity activity, int message,
-                                               int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                               int rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createAlertDialog(Activity activity, int message,
+                                             int leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                             int rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = new ZqkhDialog(activity);
+        FDDialog dialog = new FDDialog(activity);
         dialog.setMessage(message);
         if (leftButton > 0) {
             dialog.setNegativeButton(leftButton, onLeftClickListener);
@@ -178,12 +178,12 @@ public class DialogUtils {
     /**
      * 普通对话框 icon
      */
-    public static ZqkhDialog createIconDialog(Activity activity, int icon, int message,
-                                              int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                              int rightButton, DialogInterface.OnClickListener onRightClickListener)
+    public static FDDialog createIconDialog(Activity activity, int icon, int message,
+                                            int leftButton, DialogInterface.OnClickListener onLeftClickListener,
+                                            int rightButton, DialogInterface.OnClickListener onRightClickListener)
 
     {
-        ZqkhDialog dialog = new ZqkhDialog(activity);
+        FDDialog dialog = new FDDialog(activity);
         dialog.setTitleIcon(icon);
         dialog.setMessage(message);
         if (leftButton > 0) {

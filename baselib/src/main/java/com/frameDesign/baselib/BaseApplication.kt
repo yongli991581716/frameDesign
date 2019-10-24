@@ -8,7 +8,7 @@ import com.frameDesign.baseres.const.ConstConfig
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.AndPermissionProduct
-import com.frameDesign.commonlib.uitls.permission.PermissionHelper
+import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 
 /**
  * Created by liyong on 2019-10-21.
@@ -30,8 +30,8 @@ abstract class BaseApplication : MultiDexApplication() {
         DownloadHelper.initDownload(mCtx)
         //公共库组件公用上下文初始化
         CommHelper.init(mCtx)
-        //权限辅助类初始化,此处使用AndPermission库
-        PermissionHelper.init(AndPermissionProduct())
+        //权限工厂初始化,此处使用AndPermission库
+        PermissionFactory.init(AndPermissionProduct())
     }
 
     /**

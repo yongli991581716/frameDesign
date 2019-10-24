@@ -5,7 +5,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 /**
  * 自定义button
@@ -14,7 +14,7 @@ import android.widget.TextView;
  * @date 2017/5/9 13:57
  */
 @SuppressLint("AppCompatCustomView")
-public class ZqkhTextButton extends TextView {
+public class FDLinearLayout extends LinearLayout {
     /**
      * 最近一次down事件时间
      */
@@ -24,15 +24,15 @@ public class ZqkhTextButton extends TextView {
      */
     private long TIME_GAP = 500;
 
-    public ZqkhTextButton(Context context) {
+    public FDLinearLayout(Context context) {
         super(context);
     }
 
-    public ZqkhTextButton(Context context, AttributeSet attrs) {
+    public FDLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ZqkhTextButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public FDLinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

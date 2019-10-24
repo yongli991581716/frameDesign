@@ -42,8 +42,9 @@ dependencies {
     //路由注解处理器
     kapt deps.arouter.arouter_compiler
     //基础组件
-
     implementation project(path: ':baselib')
+
+
     //登录组件
     if (!LOGIN_COMPONENT_APPLICATION.toBoolean()) {
         implementation project(path: ':logincomponent')

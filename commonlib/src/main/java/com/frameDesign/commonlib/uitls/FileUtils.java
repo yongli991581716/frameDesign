@@ -12,6 +12,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.frameDesign.commonlib.CommHelper;
 
 import java.io.*;
 import java.text.DecimalFormat;
@@ -29,7 +30,7 @@ public class FileUtils {
     private static String MAIN_PATH = "main";
     private static String TEMP_PATH = "temp";
 
-    private static Context ctx;
+    private static Context ctx= CommHelper.mCtx;
 
     /**
      * 初始化

@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.Gravity;
 import com.frameDesign.commonlib.R;
-import com.frameDesign.commonlib.views.dialog.ProgressDialog;
+import com.frameDesign.commonlib.views.dialog.FDProgressDialog;
 import com.frameDesign.commonlib.views.dialog.FDDialog;
 
 /**
@@ -18,8 +18,8 @@ import com.frameDesign.commonlib.views.dialog.FDDialog;
  */
 public class DialogUtils {
 
-    public static ProgressDialog createProgressDialog(Activity activity, String message) {
-        ProgressDialog pgsDialog = new ProgressDialog(activity);
+    public static FDProgressDialog createProgressDialog(Activity activity, String message) {
+        FDProgressDialog pgsDialog = new FDProgressDialog(activity);
 //        pgsDialog.setMessage(message);
         pgsDialog.setCancelable(false);
         pgsDialog.setCanceledOnTouchOutside(false);
@@ -30,7 +30,7 @@ public class DialogUtils {
     /**
      * 等待对话框
      */
-    public static ProgressDialog createProgressDialog(Activity activity) {
+    public static FDProgressDialog createProgressDialog(Activity activity) {
         return createProgressDialog(activity, activity.getString(R.string.pls_waiting));
     }
 

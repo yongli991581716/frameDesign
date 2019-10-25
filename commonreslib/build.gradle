@@ -42,7 +42,7 @@ dependencies {
     //google gson解析库
     api deps.json.gson
     //logger解析库
-    api deps.logger
+    api deps.logger.orhanobut_logger
     //下载库
     api deps.download.filedownloader
     api deps.download.progressroundbtn
@@ -54,4 +54,13 @@ dependencies {
     api deps.permission.andpermission
     //换行布局库
     api deps.android.flexbox
+    //photo库
+    api deps.photo.fresco.fresco
+    api deps.photo.fresco.animated_gif
+    api deps.photo.fresco.animated_webp
+    api deps.photo.fresco.webpsupport
+    //guz_picker
+    api deps.picker.gzupicker.wheel_picker
+    api deps.picker.gzupicker.file_picker
+    api deps.picker.gzupicker.color_picker
 }

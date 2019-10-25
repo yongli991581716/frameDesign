@@ -13,7 +13,7 @@ import com.frameDesign.commonlib.R;
  * @author liyong
  * @date  2018/3/30.
  */
-public class ProgressDialog extends Dialog {
+public class FDProgressDialog extends Dialog {
 
     private Context mContext;
 
@@ -30,7 +30,7 @@ public class ProgressDialog extends Dialog {
      */
     private float mDimAount = 0.8f;
 
-    public ProgressDialog(Context context) {
+    public FDProgressDialog(Context context) {
         super(context, R.style.dialog);
         mContext = context;
     }

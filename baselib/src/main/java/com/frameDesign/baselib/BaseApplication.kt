@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.alibaba.android.arouter.launcher.ARouter
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.frameDesign.baseres.const.ConstConfig
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.uitls.DownloadHelper
@@ -32,6 +33,8 @@ abstract class BaseApplication : MultiDexApplication() {
         CommHelper.init(mCtx)
         //权限工厂初始化,此处使用AndPermission库
         PermissionFactory.init(AndPermissionProduct())
+        //图片库初始化
+        Fresco.initialize(mCtx)
     }
 
     /**

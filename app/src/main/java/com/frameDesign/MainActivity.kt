@@ -1,16 +1,18 @@
 package com.frameDesign
 
 import android.Manifest
+import android.content.DialogInterface
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baseres.const.router.RouterLogin
+import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
-import com.framedesign.annotation.PreShake
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +40,33 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
+    fun openFDDiaglog(view: View) {
+        DialogUtils.createAlertDialog(this, "提示", "确认是对的吗？", "取消",
+            DialogInterface.OnClickListener { dialog, which -> },
+            "确认",
+            DialogInterface.OnClickListener { dialog, which -> }).show()
+    }
+
+    fun openFDProgressDiaglog(view: View) {
+        var dialog = DialogUtils.createProgressDialog(this).also {
+
+            it.show()
+        }
+        Handler().postDelayed(object : Runnable {
+
+            override fun run() {
+                dialog.dismiss()
+            }
+        }, 3000)
+
+    }
+
+    fun openPicker(view: View) {
+
+    }
+
+
 
     fun jumpToGood(view: View) {
         ARouter.getInstance().build(RouterLogin.LOGIN_ACTIVITY).navigation()

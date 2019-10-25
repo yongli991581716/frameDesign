@@ -6,65 +6,86 @@ buildscript {
     ext.kotlin_version = '1.3.31'
 
     ext.versions = [
-            'kotlin'      : "1.3.31",
-            'gradle'      : "3.4.1",
-            'compileSdk'  : 29,
-            'minSdk'      : 19,
-            'targetSdk'   : 29,
-            'anko_version': "0.10.5",
-
+            'kotlin'        : "1.3.31",
+            'gradle'        : "3.4.1",
+            'compileSdk'    : 29,
+            'minSdk'        : 19,
+            'targetSdk'     : 29,
+            'anko_version'  : "0.10.5",
+            'fresco_version': "2.0.0",
+            'gzu_picker'    : "1.5.6",
     ]
 
 
     ext.deps = [
-            'test'     : [
+            'test'      : [
                     'junit'   : "junit:junit:4.12",
                     'runner'  : "androidx.test:runner:1.2.0",
                     'espresso': "androidx.test.espresso:espresso-core:3.2.0",
             ],
-            'android'  : [
+            'android'   : [
                     'gradlePlugin': "com.android.tools.build:gradle:${versions.gradle}",
-                    'flexbox':'com.google.android:flexbox:1.1.1',
+                    'flexbox'     : 'com.google.android:flexbox:1.1.1',
             ],
-            'support'  : [
+            'support'   : [
                     'androidx_compat'          : "androidx.appcompat:appcompat:1.1.0",
                     'androidx_core'            : "androidx.core:core-ktx:1.1.0",
                     'androidx_constraintlayout': "androidx.constraintlayout:constraintlayout:1.1.3",
             ],
-            'kotlin'   : [
+            'kotlin'    : [
                     'kgp'        : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                     'kotlin_jdk7': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             ],
+            'photo'     : [
+                    'fresco': [
+                            'fresco'       : "com.facebook.fresco:fresco:${versions.fresco_version}",
+                            'animated_gif' : "com.facebook.fresco:animated-gif:${versions.fresco_version}",// 支持 GIF 动图，需要添加
+                            'animated_webp': "com.facebook.fresco:animated-webp:${versions.fresco_version}", // 支持 WebP （静态图+动图），需要添加
+                            'webpsupport'  : "com.facebook.fresco:webpsupport:${versions.fresco_version}", // 仅支持 WebP 静态图，需要添加
+                    ],
+            ],
+            'picker'    : [
+                    'gzupicker': [
+                            'wheel_picker': "com.github.gzu-liyujiang.AndroidPicker:WheelPicker:${versions.gzu_picker}",
+                            'file_picker' : "com.github.gzu-liyujiang.AndroidPicker:FilePicker:${versions.gzu_picker}",
+                            'color_picker': "com.github.gzu-liyujiang.AndroidPicker:ColorPicker:${versions.gzu_picker}",
+                    ],
+            ],
             //ali路由跳转
-            'arouter'  : [
+            'arouter'   : [
                     'arouter_register': 'com.alibaba:arouter-register:1.0.2',
                     'arouter_api'     : 'com.alibaba:arouter-api:1.5.0',
                     'arouter_compiler': 'com.alibaba:arouter-compiler:1.2.2',
             ],
-            'json'     : [
+            'json'      : [
                     'gson': 'com.google.code.gson:gson:2.8.6'
             ],
-            'download' : [
+            'download'  : [
                     'progressroundbtn': 'com.xiaochendev.progressroundbtn:library:2.0.0',
                     'filedownloader'  : 'com.liulishuo.filedownloader:library:1.7.6',
             ],
-            'anko'     : [
+            'anko'      : [
                     'ankoCommons': "org.jetbrains.anko:anko-commons:${versions.anko_version}",
             ],
-            'animation': [
+            'animation' : [
                     'lottie'         : 'com.airbnb.android:lottie:2.7.0',
                     'nineoldandroids': 'com.nineoldandroids:library:2.4.0',
             ],
-            'permission':[
-                    'andpermission':'com.yanzhenjie:permission:2.0.3',
+            'permission': [
+                    'andpermission': 'com.yanzhenjie:permission:2.0.3',
             ],
-            'logger'   : 'com.orhanobut:logger:2.2.0',
+            'logger'    : [
+                    'orhanobut_logger': 'com.orhanobut:logger:2.2.0',
+            ],
 
     ]
 
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
 
     }
     dependencies {
@@ -74,7 +95,6 @@ buildscript {
         // in the individual module build.gradle files
         classpath deps.kotlin.kotlin_jdk7
         classpath deps.arouter.arouter_register
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -82,6 +102,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://jitpack.io"
+        }
 
     }
 }

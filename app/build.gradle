@@ -17,12 +17,84 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
-    buildTypes {
+
+    signingConfigs {
         release {
+            if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                storeFile file('../'+MYAPP_RELEASE_STORE_FILE)
+                storePassword MYAPP_RELEASE_STORE_PASSWORD
+                keyAlias MYAPP_RELEASE_KEY_ALIAS
+                keyPassword MYAPP_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    //构建版本和生产版本合成构建变体
+    //构建版本
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //生产版本
+    flavorDimensions "default"
+    productFlavors {
+
+        flavor_dev {
+            dimension "default"
+            manifestPlaceholders = [CHANNEL_NAME: "flavor_dev"]
+            buildConfigField "String", "API_HOST", "\"flavor_dev\""
+            resValue "string", "app_name_env", "框架-dev"
+        }
+
+        flavor_test {
+            dimension "default"
+            manifestPlaceholders = [CHANNEL_NAME: "flavor_test"]
+            buildConfigField "String", "API_HOST", "\"flavor_test\""
+            resValue "string", "app_name_env", "框架-test"
+        }
+
+        flavor_uat {
+            dimension "default"
+            manifestPlaceholders = [CHANNEL_NAME: "flavor_uat"]
+            buildConfigField "String", "API_HOST", "\"flavor_uat\""
+            resValue "string", "app_name_env", "框架-uat"
+        }
+
+        pub {
+            dimension "default"
+            manifestPlaceholders = [CHANNEL_NAME: "pub"]
+            buildConfigField "String", "API_HOST", "\"pub\""
+            resValue "string", "app_name_env", "框架-pub"
+        }
+    }
+
+    //修改release版本文件名
+    applicationVariants.all { variant ->
+        //这个修改输出的APK路径
+        if (variant.buildType.name != "debug") {//防止AS无法安装debug包(apk)
+            variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
+                //这个修改输出APK的文件名
+                apkData.outputFileName = apkData.getDirName() + "/frameDesign _v" +
+                        variant.versionName + "_" +
+                        variant.flavorName + "_" +
+                        variant.signingConfig.name +
+                        ".apk"
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -39,18 +111,10 @@ kapt {
 }
 
 dependencies {
+    //任何一个Android项目中，你都可以把一个jar、aar文件放在到libs文件夹下，其会自动的将其添加到编译路径以及最后的APK文件
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     //路由注解处理器
     kapt deps.arouter.arouter_compiler
     //基础组件
     implementation project(path: ':baselib')
-
-
-    //登录组件
-    if (!LOGIN_COMPONENT_APPLICATION.toBoolean()) {
-        implementation project(path: ':logincomponent')
-    }
-    //商品组件
-    if (!GOOD_COMPONENT_APPLICATION.toBoolean()) {
-        implementation project(path: ':goodcomponent')
-    }
 }

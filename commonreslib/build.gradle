@@ -23,6 +23,7 @@ android {
 }
 
 dependencies {
+    //任何一个Android项目中，你都可以把一个jar文件放在到libs文件夹下，其会自动的将其添加到编译路径以及最后的APK文件
     api fileTree(dir: 'libs', include: ['*.jar'])
     //依赖注解库
     api project(path: ':annotation')

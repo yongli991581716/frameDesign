@@ -1,6 +1,8 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 apply plugin: 'com.alibaba.arouter'
+//导入打包并复制aar脚本工具
+apply from: "pkgaar.gradle"
 
 buildscript {
     ext.kotlin_version = '1.3.31'

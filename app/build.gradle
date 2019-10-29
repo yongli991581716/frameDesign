@@ -12,7 +12,7 @@ android {
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -86,7 +86,7 @@ android {
         if (variant.buildType.name != "debug") {//防止AS无法安装debug包(apk)
             variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
                 //这个修改输出APK的文件名
-                apkData.outputFileName = apkData.getDirName() + "/frameDesign _v" +
+                apkData.outputFileName = apkData.getDirName() + "/frameDesign_v" +
                         variant.versionName + "_" +
                         variant.flavorName + "_" +
                         variant.signingConfig.name +

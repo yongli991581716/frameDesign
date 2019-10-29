@@ -64,7 +64,7 @@ android {
     }
 
     //在非独立组件模式下，将该库打包成AAR并复制粘贴到app/libs目录下
-    if (!GOOD_COMPONENT_APPLICATION.toBoolean()) {
+    if (!LOGIN_COMPONENT_APPLICATION.toBoolean()) {
         //packagingAAR(project, providers)
         libraryVariants.all { variant ->
             if (variant.buildType.name == "release") {

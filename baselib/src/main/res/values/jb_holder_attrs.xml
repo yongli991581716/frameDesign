@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="jb_holder_view">
+        <attr name="jb_holder_error" format="reference" />
+        <attr name="jb_holder_empty" format="reference" />
+        <attr name="jb_holder_noNet" format="reference" />
+        <attr name="jb_holder_loading" format="reference" />
+        <attr name="jb_holder_recycle" format="boolean" />
+        <attr name="jb_holder_clear_detached" format="boolean" />
+        <attr name="jb_holder_animation_enable" format="boolean" />
+    </declare-styleable>
+    <string name="jb_holder_notice">自定义状态View</string>
+    <item name="jb_holder_state_tag" type="id" />
+</resources>

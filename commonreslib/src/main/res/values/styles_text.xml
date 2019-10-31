@@ -2,13 +2,36 @@
 
     <!--title文本样式-->
     <style name="text_title" parent="@style/wrap_wrap">
-        <item name="android:textColor">@color/color555555</item>
+        <item name="android:textColor">@color/colorDarkText</item>
         <item name="android:textSize">@dimen/font_16</item>
     </style>
 
     <!-- 普通文本样式 -->
     <style name="text_normal" parent="@style/wrap_wrap">
-        <item name="android:textColor">@color/color999999</item>
+        <item name="android:textColor">@color/colorLightText</item>
         <item name="android:textSize">@dimen/font_14</item>
+    </style>
+
+    <style name="title_left_text" parent="@style/text_title">
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="title_right_text" parent="@style/text_title">
+        <item name="android:textSize">@dimen/font_14</item>
+    </style>
+
+    <style name="title_right_image">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="title_content_text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/font_16</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 </resources>

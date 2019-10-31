@@ -20,7 +20,9 @@ import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import com.frameDesign.commonlib.CommHelper
+import com.frameDesign.commonlib.R
 import com.frameDesign.commonlib.expand.px2dp
+import com.frameDesign.commonlib.expand.toast
 
 
 /**
@@ -205,7 +207,8 @@ object SystemUtil {
      */
     fun isAppInstalled(pkg: String): Boolean {
         try {
-            val packageInfo = ctx.packageManager.getPackageInfo(pkg, PackageManager.GET_UNINSTALLED_PACKAGES)
+            val packageInfo =
+                ctx.packageManager.getPackageInfo(pkg, PackageManager.GET_UNINSTALLED_PACKAGES)
             if (packageInfo != null) {
                 return true
             }
@@ -414,6 +417,15 @@ object SystemUtil {
         }
 
         return null
+    }
+
+
+    /**
+     * 进入权限设置页面
+     */
+    fun gotoPermissionSettings(activity: Activity?) {
+        toast(activity?.getString(R.string.permission_refuse_hint))
+        activity?.startActivity(Intent(Settings.ACTION_SETTINGS))
     }
 
 }

@@ -50,7 +50,7 @@ fun WheelPicker.setStyle(): Unit {
     setCancelTextColor(blueTextColor)
 
     setTextColor(
-        zqColor(R.color.color555555),
+        zqColor(R.color.colorDarkText),
         zqColor(R.color.colorD8D8D8)
     )
 

@@ -28,6 +28,23 @@
 
     </style>
 
+    <style name="match_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+
+    </style>
+
+    <style name="match_wrap_v" parent="@style/match_wrap">
+        <item name="android:orientation">vertical</item>
+
+    </style>
+
+    <style name="line_h">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_h</item>
+        <item name="android:background">@color/colorDivider</item>
+    </style>
+
     <!-- 透明背景 -->
     <style name="dialog" parent="@style/AppTheme">
         <item name="android:windowFrame">@null</item>

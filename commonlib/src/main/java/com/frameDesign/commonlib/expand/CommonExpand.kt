@@ -11,6 +11,11 @@ import com.frameDesign.commonlib.uitls.DensityUtils
 import com.frameDesign.commonlib.uitls.LogUtils
 import com.frameDesign.commonlib.uitls.ToastUtils
 import com.google.gson.reflect.TypeToken
+import com.orhanobut.logger.Logger
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.functions.BiFunction
 import java.lang.reflect.Type
 import java.text.DecimalFormat
 import java.util.concurrent.atomic.AtomicBoolean
@@ -214,3 +219,39 @@ inline fun runUIThread(crossinline block: () -> Unit) {
  */
 inline fun <reified T> tokenType(): Type =
     object : TypeToken<T>() {}.type
+
+
+/**
+ * 打印RxJava返回值
+ * @receiver Observable<*>
+ * @param tag String
+ * @return Disposable
+ */
+inline fun Observable<*>.showLog(tag: String): Disposable {
+    return this.subscribe({
+        Logger.e("$tag onNext ->$it")
+    }, {
+        Logger.e("$tag onError ->${it::class.java.simpleName} ${it.message}")
+    }) {
+        Logger.e("$tag onCompleted")
+    }
+}
+
+
+/**
+ * 调度到主线程执行
+ * @receiver Observable<T>
+ * @return Observable<T>
+ */
+inline fun <T> Observable<T>.runUIThread(): Observable<T> =
+    this.observeOn(AndroidSchedulers.mainThread())
+
+/**
+ *
+ * @receiver Observable<T>
+ * @param otehr Observable<R>
+ * @return Observable<T>
+ */
+inline fun <T, R> Observable<T>.zipAndIgnore(otehr: Observable<R>): Observable<T> {
+    return this.zipWith(otehr, BiFunction { t1, _ -> t1 })
+}

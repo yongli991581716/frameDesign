@@ -14,7 +14,9 @@
   limitations under the License.
   -->
 <resources>
-
+    <!--不同屏幕的配置-->
+    <dimen name="title_bar_h">44dp</dimen>
+    <dimen name="line_h">@dimen/dt_1</dimen>
 
     <dimen name="dt_1">1dp</dimen>
     <dimen name="dt_2">2dp</dimen>

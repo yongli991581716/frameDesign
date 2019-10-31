@@ -7,7 +7,7 @@ package com.frameDesign.commonlib.uitls.permission
  */
 object PermissionFactory {
 
-    lateinit var mPermissionProduct: PermissionProduct
+    private lateinit var mPermissionProduct: PermissionProduct
 
     fun init(permissionProduct: PermissionProduct) {
         mPermissionProduct = permissionProduct
@@ -17,7 +17,7 @@ object PermissionFactory {
     /**
      * 权限执行
      */
-    fun execute(permission: PermissonBean, listener: IPermissionListener?=null) {
+    fun execute(permission: PermissonBean, listener: IPermissionListener? = null) {
         mPermissionProduct.execute(permission, listener)
     }
 }

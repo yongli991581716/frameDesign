@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/ll_title_root"
+        style="@style/match_wrap_v"
+        android:background="@color/colorWhite"
+        tools:background="@color/colorPrimary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_h"
+            android:layout_marginTop="@dimen/dt_24">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_title_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="48dp"
+                android:paddingLeft="@dimen/dt_16"
+                android:paddingRight="@dimen/dt_8">
+
+            <TextView
+                    android:id="@+id/tv_title_left"
+                    style="@style/title_left_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/iv_title_left"
+                    android:layout_width="@dimen/font_16"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@mipmap/common_ic_back_white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.frameDesign.commonlib.views.button.FDTextButton
+                android:id="@+id/tv_title_right2"
+                style="@style/title_right_text"
+                android:paddingLeft="@dimen/dt_8"
+                android:paddingRight="@dimen/dt_5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/layout_title_right"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_title_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:minWidth="48dp"
+                android:paddingLeft="@dimen/dt_8"
+                android:paddingRight="@dimen/dt_16"
+                app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                    android:id="@+id/tv_title_right"
+                    style="@style/title_right_text"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                    android:id="@+id/iv_title_right"
+                    style="@style/title_right_image"
+                    android:layout_marginRight="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/tv_title_right"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+                android:id="@+id/rl_title_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/layout_title_left"
+                app:layout_constraintRight_toLeftOf="@id/layout_title_right"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:id="@+id/tv_title_content"
+                    style="@style/title_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textStyle="bold"
+                    tools:text="测试标题"
+                    tools:textColor="@color/colorWhite" />
+
+
+            <ImageView
+                    android:id="@+id/tv_title_arrow"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dt_5"
+                    android:layout_toRightOf="@id/tv_title_content"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_next_down" />
+        </RelativeLayout>
+
+        <ImageView
+                android:id="@+id/iv_line"
+                style="@style/line_h"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

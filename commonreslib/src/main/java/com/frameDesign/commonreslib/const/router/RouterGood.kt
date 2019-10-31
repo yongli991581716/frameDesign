@@ -1,4 +1,4 @@
-package com.frameDesign.baseres.const.router
+package com.frameDesign.commonreslib.const.router
 
 /**
  * description

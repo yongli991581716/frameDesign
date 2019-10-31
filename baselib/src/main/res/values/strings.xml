@@ -1,3 +1,8 @@
 <resources>
     <string name="baselib_app_name">baselib</string>
+
+    <string name="str_status_no_network">网络连接异常\n请检查网络设置后重试</string>
+    <string name="str_status_error_data">服务器连接异常\n请稍后再试</string>
+    <string name="str_status_empty_data">暂无该类型数据\n请稍后再试</string>
+    <string name="hint_list_empty_data">暂无该类型数据\n下拉刷新试试</string>
 </resources>

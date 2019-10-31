@@ -1,11 +1,12 @@
 // 不提示警告
 @file:Suppress("NOTHING_TO_INLINE")
 
-package com.zqkh.commlibrary.utilslibrary.expand
+package com.frameDesign.commonlib.expand
 
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import androidx.annotation.Px
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -13,17 +14,14 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.frameDesign.commonlib.expand.DEF_FUN
-import com.frameDesign.commonlib.expand.currentTime
-import com.frameDesign.commonlib.expand.ifElse
-import com.frameDesign.commonlib.expand.offsetTime
+import com.frameDesign.commonlib.views.internal.ILifeCycle
+
 
 /**
- * @Create JustBlue
- * @Time 07/10/2018
- * @Desc View 相关拓展
+ * View 相关拓展
+ * @author liyong
+ * @date 2018-10-25
  */
-
 /**
  * [get]获取View可见状态
  * [set]设置View可见状态
@@ -135,6 +133,24 @@ inline fun View.doOnLayout(crossinline action: (view: View) -> Unit) {
         action(this)
     } else {
         doOnNextLayout(action)
+    }
+}
+
+/**
+ * 回调布局改变, 回并做到自动销毁
+ * @receiver View
+ * @param lifecycle ILifeCycle
+ * @param action (view: View) -> Unit
+ */
+inline fun View.doOnLayout(lifecycle: ILifeCycle, crossinline action: (view: View) -> Unit) {
+    val listener = ViewTreeObserver.OnGlobalLayoutListener {
+        action(this@doOnLayout)
+    }
+
+    viewTreeObserver.addOnGlobalLayoutListener(listener)
+
+    lifecycle.doOnDestroy {
+        viewTreeObserver.removeGlobalOnLayoutListener(listener)
     }
 }
 
@@ -276,7 +292,11 @@ inline fun ViewPager.doOnPageChange(crossinline runStateChange: (Int) -> Unit) {
         override fun onPageScrollStateChanged(state: Int) = runStateChange(state)
 
         override fun onPageSelected(position: Int) = DEF_FUN()
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = DEF_FUN()
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) = DEF_FUN()
     })
 }
 
@@ -289,7 +309,11 @@ inline fun ViewPager.doOnPageSelect(crossinline runPageSelect: (Int) -> Unit) {
         override fun onPageSelected(position: Int) = runPageSelect(position)
 
         override fun onPageScrollStateChanged(state: Int) = DEF_FUN()
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = DEF_FUN()
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) = DEF_FUN()
     })
 }
 
@@ -302,7 +326,11 @@ inline fun ViewPager.doOnPageScroll(crossinline runPageScroll: (Int, Float, Int)
         override fun onPageSelected(position: Int) = DEF_FUN()
         override fun onPageScrollStateChanged(state: Int) = DEF_FUN()
 
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) =
+        override fun onPageScrolled(
+            position: Int,
+            positionOffset: Float,
+            positionOffsetPixels: Int
+        ) =
             runPageScroll(position, positionOffset, positionOffsetPixels)
     })
 }

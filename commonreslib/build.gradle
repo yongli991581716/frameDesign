@@ -13,6 +13,9 @@ android {
 
     }
 
+    dataBinding {
+        enabled = true
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -49,10 +52,13 @@ dependencies {
     api deps.download.progressroundbtn
     //anko支持库
     api deps.anko.ankoCommons
+    api deps.anko.anko
     //动画库
     api deps.animation.lottie
+    api deps.animation.spinkit
     //权限库
     api deps.permission.andpermission
+    api deps.permission.rxpermissions
     //换行布局库
     api deps.android.flexbox
     //photo库
@@ -64,4 +70,23 @@ dependencies {
     api deps.picker.gzupicker.wheel_picker
     api deps.picker.gzupicker.file_picker
     api deps.picker.gzupicker.color_picker
+    //image_picker
+    api deps.picker.imagepicker
+    //事件总线
+    api deps.event.eventbus
+    //统计分析
+    api deps.statistics.umeng.common
+    api deps.statistics.umeng.analitics
+    //异步库
+    api deps.async.rx.rxjava
+    api deps.async.rx.rxandroid
+    //沉浸式
+    api deps.immersion.statusbar
+    //辅助库
+    api deps.assist.swipeback
+    //view库
+    api deps.view.smartrefreshlayout
+    api deps.view.Smartrefreshheader
+    api deps.view.recycleradapter
+
 }

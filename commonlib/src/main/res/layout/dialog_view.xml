@@ -95,7 +95,7 @@
                         android:gravity="center"
                         android:singleLine="true"
                         android:text="@string/cancel"
-                        android:textColor="@color/color999999"
+                        android:textColor="@color/colorLightText"
                         android:textSize="@dimen/font_16" />
 
 

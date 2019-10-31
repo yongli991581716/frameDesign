@@ -52,6 +52,7 @@ buildscript {
                             'file_picker' : "com.github.gzu-liyujiang.AndroidPicker:FilePicker:${versions.gzu_picker}",
                             'color_picker': "com.github.gzu-liyujiang.AndroidPicker:ColorPicker:${versions.gzu_picker}",
                     ],
+                    'imagepicker':'com.github.esafirm.android-image-picker:imagepicker:2.2.0',
             ],
             //ali路由跳转
             'arouter'   : [
@@ -67,18 +68,48 @@ buildscript {
                     'filedownloader'  : 'com.liulishuo.filedownloader:library:1.7.6',
             ],
             'anko'      : [
+                    'anko'       : "org.jetbrains.anko:anko:${versions.anko_version}",
                     'ankoCommons': "org.jetbrains.anko:anko-commons:${versions.anko_version}",
             ],
             'animation' : [
                     'lottie'         : 'com.airbnb.android:lottie:2.7.0',
                     'nineoldandroids': 'com.nineoldandroids:library:2.4.0',
+                    'spinkit'        : 'com.github.ybq:Android-SpinKit:1.4.0',
             ],
             'permission': [
                     'andpermission': 'com.yanzhenjie:permission:2.0.3',
+                    'rxpermissions': 'com.github.tbruyelle:rxpermissions:0.10.2',
             ],
             'logger'    : [
                     'orhanobut_logger': 'com.orhanobut:logger:2.2.0',
             ],
+            'event'     : [
+                    'eventbus': 'org.greenrobot:eventbus:3.1.1',
+            ],
+            'statistics': [
+                    'umeng': [
+                            'common'   : 'com.umeng.umsdk:common:2.0.0',
+                            'analitics': 'com.umeng.umsdk:analytics:8.0.0',
+                    ],
+            ],
+            'async'     : [
+                    'rx': [
+                            'rxjava'   : 'io.reactivex.rxjava2:rxjava:2.2.13',
+                            'rxandroid': 'io.reactivex.rxjava2:rxandroid:2.1.1',
+                    ],
+            ],
+            'immersion' : [
+                    'statusbar': 'com.jaeger.statusbarutil:library:1.5.1',
+            ],
+            'assist'    : [
+                    'swipeback': 'me.imid.swipebacklayout.lib:library:1.1.0',
+            ],
+            'view'      : [
+                    'smartrefreshlayout': 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0',//1.0.5及以前版本的老用户升级需谨慎，API改动过大
+                    'Smartrefreshheader': 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0',  //没有使用特殊Header，可以不加这行
+                    'recycleradapter'   : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47-androidx',
+            ],
+
 
     ]
 
@@ -87,6 +118,10 @@ buildscript {
         jcenter()
         maven {
             url "https://jitpack.io"
+        }
+        //umeng仓库
+        maven {
+            url 'https://dl.bintray.com/umsdk/release'
         }
 
     }
@@ -106,6 +141,10 @@ allprojects {
         jcenter()
         maven {
             url "https://jitpack.io"
+        }
+        //umeng仓库
+        maven {
+            url 'https://dl.bintray.com/umsdk/release'
         }
 
     }

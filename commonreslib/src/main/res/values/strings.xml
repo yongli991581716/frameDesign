@@ -5,4 +5,5 @@
     <string name="cancel">取消</string>
     <string name="firm">确认</string>
     <string name="known">知道了</string>
+    <string name="permission_refuse_hint">在设置-应用-中清协同助手-权限中开启相关权限，以正常使用拍照、定位、扫一扫等功能</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.frameDesign.baseres.const
+package com.frameDesign.commonreslib.const
 
 import com.frameDesign.commonreslib.BuildConfig
 

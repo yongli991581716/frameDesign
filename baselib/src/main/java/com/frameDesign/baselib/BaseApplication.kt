@@ -5,7 +5,7 @@ import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.alibaba.android.arouter.launcher.ARouter
 import com.facebook.drawee.backends.pipeline.Fresco
-import com.frameDesign.baseres.const.ConstConfig
+import com.frameDesign.commonreslib.const.ConstConfig
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.AndPermissionProduct

@@ -4,14 +4,30 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="colorTransparent">@color/color000000000</color>
+    <color name="colorDarkText">@color/color555555</color>
+    <color name="colorLightText">@color/color999999</color>
+    <color name="colorAccentText">@color/colorB0B0B0</color>
+    <color name="colorDivider">@color/colorF0F0F0</color>
+    <color name="colorBackground">@color/colorFBFBFB</color>
+    <color name="colorGreen">@color/color00BC71</color>
+    <color name="colorRed">@color/colorf44336</color>
+    <color name="colorStoneBlue">@color/color444D62</color>
 
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
 
     <color name="color555555">#555555</color>
     <color name="color999999">#999999</color>
+    <color name="colorf44336">#f44336</color>
+    <color name="color444D62">#444D62</color>
+    <color name="color00BC71">#00BC71</color>
     <color name="colorD8D8D8">#D8D8D8</color>
     <color name="colorE8E8E8">#E8E8E8</color>
+    <color name="colorF0F0F0">#F0F0F0</color>
+    <color name="colorFBFBFB">#FBFBFB</color>
+    <color name="colorB0B0B0">#B0B0B0</color>
+    <color name="color000000000">#00000000</color>
 
-    <color name="colorTransparent">#00000000</color>
+
 </resources>

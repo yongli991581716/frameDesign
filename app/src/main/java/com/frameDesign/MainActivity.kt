@@ -5,22 +5,27 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
-import com.frameDesign.baseres.const.router.RouterLogin
+import com.frameDesign.baselib.controller.BaseActivity
+import com.frameDesign.commonreslib.const.router.RouterLogin
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+
+    override fun getLayoutView(): Any = R.layout.activity_main
+
+
+    override fun initView(state: Bundle?) {
+
+        mTitleDelegate.setTitleContent("首页")
+        mTitleDelegate.switchBlueTheme()
     }
-
 
     fun readWritePermission(view: View) {
         PermissionFactory.execute(PermissonBean(
@@ -40,6 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         })
     }
+
 
     fun openFDDiaglog(view: View) {
         DialogUtils.createAlertDialog(this, "提示", "确认是对的吗？", "取消",
@@ -65,7 +71,6 @@ class MainActivity : AppCompatActivity() {
     fun openPicker(view: View) {
 
     }
-
 
 
     fun jumpToGood(view: View) {

@@ -3,22 +3,26 @@ package com.frameDesign.commonlib.views.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
+
 import com.frameDesign.commonlib.R;
 
 /**
  * 对话框工具
  *
  * @author liyong
- * @date  2018/3/30.
+ * @date 2018/3/30.
  */
 public class FDProgressDialog extends Dialog {
 
     private Context mContext;
 
-//    private TextView mMessageTv;//消息提示文本
-//    private String mMessage;//从外界设置的消息文本
+    private TextView mMessageTv;//消息提示文本
+    private String mMessage;//从外界设置的消息文本
 
     /**
      * 是否能设置外部触摸
@@ -49,14 +53,14 @@ public class FDProgressDialog extends Dialog {
      */
     private void initView() {
 
-//        mMessageTv = (TextView) findViewById(R.id.message);
-//
-//
-//        if (TextUtils.isEmpty(mMessage)) {
-//            mMessageTv.setVisibility(View.GONE);
-//        } else {
-//            mMessageTv.setText(mMessage);
-//        }
+        mMessageTv = (TextView) findViewById(R.id.message);
+
+
+        if (TextUtils.isEmpty(mMessage)) {
+            mMessageTv.setVisibility(View.GONE);
+        } else {
+            mMessageTv.setText(mMessage);
+        }
 
         //按空白处不能取消动画
         setCanceledOnTouchOutside(mTouchOutSideFlag);
@@ -69,27 +73,27 @@ public class FDProgressDialog extends Dialog {
         window.setAttributes(lp);
     }
 
-//    /**
-//     * 从外界Activity为Dialog设置dialog的message
-//     *
-//     * @param message
-//     */
-//    public void setMessage(String message) {
-//        mMessage = message;
-//    }
-//
-//    /**
-//     * 从外界Activity为Dialog设置dialog的message
-//     *
-//     * @param messageId
-//     */
-//    public void setMessage(int messageId) {
-//        mMessage = mContext.getString(messageId);
-//    }
-//
-//
-//    public TextView getMessage() {
-//        return mMessageTv;
-//    }
+    /**
+     * 从外界Activity为Dialog设置dialog的message
+     *
+     * @param message
+     */
+    public void setMessage(String message) {
+        mMessage = message;
+    }
+
+    /**
+     * 从外界Activity为Dialog设置dialog的message
+     *
+     * @param messageId
+     */
+    public void setMessage(int messageId) {
+        mMessage = mContext.getString(messageId);
+    }
+
+
+    public TextView getMessage() {
+        return mMessageTv;
+    }
 }
 

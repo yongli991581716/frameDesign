@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <RelativeLayout
@@ -11,13 +9,49 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true">
 
-        <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/pb_load"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layerType="software"
-                app:lottie_autoPlay="true"
-                app:lottie_fileName="progress_loading.json"
-                app:lottie_loop="true" />
+<!--        <com.airbnb.lottie.LottieAnimationView-->
+        <!--                android:id="@+id/pb_load"-->
+        <!--                android:layout_width="80dp"-->
+        <!--                android:layout_height="80dp"-->
+        <!--                android:layerType="software"-->
+        <!--                app:lottie_autoPlay="true"-->
+        <!--                app:lottie_fileName="progress_loading.json"-->
+        <!--                app:lottie_loop="true" />-->
+
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="285dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_dialog"
+                android:divider="@drawable/shape_divider_line_h"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:showDividers="middle">
+
+            <LinearLayout
+                    android:id="@+id/linearLayout_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dt_20">
+
+                <ProgressBar
+                        android:id="@+id/pb_load"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="@dimen/dt_10"/>
+
+                <TextView
+                        android:id="@+id/message"
+                        style="@style/text_normal"
+                        android:textColor="@color/colorDarkText"
+                        android:text="提示消息" />
+
+            </LinearLayout>
+
+        </LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

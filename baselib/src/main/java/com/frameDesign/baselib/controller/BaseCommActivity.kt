@@ -9,18 +9,21 @@ import androidx.annotation.CallSuper
 import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baselib.R
 import com.frameDesign.baselib.controller.life.RxActivityResult
-import com.frameDesign.commonlib.views.internal.ILifeCycle
+import com.frameDesign.commonlib.expand.runUIThread
 import com.frameDesign.commonlib.uitls.FitHelper
+import com.frameDesign.commonlib.views.internal.ILifeCycle
 import com.tbruyelle.rxpermissions2.RxPermissions
 import com.umeng.analytics.MobclickAgent
 import com.zqkh.commlibrary.internal.LoadAction
 import com.zqkh.commlibrary.internal.ViewAction
+import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
 import org.greenrobot.eventbus.EventBus
 import org.jetbrains.anko.AnkoException
 import org.jetbrains.anko.contentView
 import java.io.Serializable
+import java.util.concurrent.TimeUnit
 
 /**
  * @desc  activity基础公共类
@@ -260,12 +263,12 @@ open abstract class BaseCommActivity : SwipeBackActivity(), ILifeCycle, ViewActi
      * @Deprecated 替换为postDelay()
      */
 //    @Deprecated("使用面狭窄")
-//    protected infix fun Int.timer(runTimer: () -> Unit) {
-//        Observable.timer(this.toLong(), TimeUnit.MILLISECONDS)
-//            .bindDestroy()
-//            .runUIThread()
-//            .subscribe {
-//                kotlin.run(runTimer)
-//            }
-//    }
+    protected infix fun Int.timer(runTimer: () -> Unit) {
+        Observable.timer(this.toLong(), TimeUnit.MILLISECONDS)
+            .bindDestroy()
+            .runUIThread()
+            .subscribe {
+                kotlin.run(runTimer)
+            }
+    }
 }

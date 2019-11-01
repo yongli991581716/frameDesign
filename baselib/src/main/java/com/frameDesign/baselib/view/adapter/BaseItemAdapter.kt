@@ -42,7 +42,7 @@ abstract class BaseItemAdapter<T, VH : BaseViewHolder>(@LayoutRes layoutId: Int,
     constructor() : this(0, mutableListOf<T>())
 
     init {
-        setLoadMoreView(ZQLoadMoreView {
+        setLoadMoreView(FDLoadMoreView {
             loadMoreComplete()
         })
     }
@@ -327,7 +327,7 @@ abstract class BaseDataBindingAdapter<T, DB : ViewDataBinding>(@LayoutRes layout
  */
 open class DataBindingVH<DB : ViewDataBinding>(val itemBind: DB) : BaseViewHolder(itemBind.root)
 
-class ZQLoadMoreView(private val doRetryClick: (v: View) -> Unit) : LoadMoreView() {
+class FDLoadMoreView(private val doRetryClick: (v: View) -> Unit) : LoadMoreView() {
 
     override fun convert(holder: BaseViewHolder) {
         super.convert(holder)

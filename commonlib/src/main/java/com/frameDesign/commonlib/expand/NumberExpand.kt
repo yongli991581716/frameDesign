@@ -1,4 +1,4 @@
-package com.zqkh.commlibrary.utilslibrary.expand
+package com.frameDesign.commonlib.expand
 
 import com.frameDesign.commonlib.uitls.FormatUtils.formatXXX_00
 

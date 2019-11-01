@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baselib.controller.life.RxActivityResult
 import com.frameDesign.commonlib.views.internal.ILifeCycle
-import com.zqkh.commlibrary.internal.LoadAction
-import com.zqkh.commlibrary.internal.ViewAction
+import com.frameDesign.commonlib.views.internal.LoadAction
+import com.frameDesign.commonlib.views.internal.ViewAction
 import io.reactivex.subjects.PublishSubject
 import org.greenrobot.eventbus.EventBus
 

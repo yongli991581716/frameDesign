@@ -91,19 +91,19 @@ inline fun <T : Number> T.format3Comma(): String {
 //inline fun <T : BaseBean> T.toJsonString(): String? = JsonUtils.toJsonString(this)
 
 /* 通过id获取String, 简化代码(下同) */
-inline fun zqString(@StringRes idRes: Int): String =
+inline fun fdString(@StringRes idRes: Int): String =
     CommHelper.mCtx.resources.getString(idRes)
 
-inline fun zqColor(@ColorRes idRes: Int): Int =
+inline fun fdColor(@ColorRes idRes: Int): Int =
     CommHelper.mCtx.resources.getColor(idRes)
 
-inline fun zqDrawable(@DrawableRes idRes: Int): Drawable =
+inline fun fdDrawable(@DrawableRes idRes: Int): Drawable =
     CommHelper.mCtx.resources.getDrawable(idRes)
 
-inline fun zqDimen(@DimenRes idRes: Int): Int =
+inline fun fdDimen(@DimenRes idRes: Int): Int =
     CommHelper.mCtx.resources.getDimensionPixelSize(idRes)
 
-inline fun zqArray(@ArrayRes idRes: Int): Array<String> =
+inline fun fdArray(@ArrayRes idRes: Int): Array<String> =
     CommHelper.mCtx.resources.getStringArray(idRes)
 
 /**
@@ -117,21 +117,21 @@ inline fun AtomicBoolean.F2T(): Boolean = this.compareAndSet(false, true)
 /**
  * 简化Toast提示, 默认不提示 null ro ""
  */
-inline infix fun <ACT : Activity> ACT.toast(msg: String?) {
+inline infix fun <ACT : Activity> ACT.fdToast(msg: String?) {
     ToastUtils.show(CommHelper.mCtx, msg)
 }
 
 /**
  * 简化Toast提示, 默认不提示 null ro ""
  */
-inline infix fun <FGT : Fragment> FGT.toast(msg: String?) {
+inline infix fun <FGT : Fragment> FGT.fdToast(msg: String?) {
     ToastUtils.show(CommHelper.mCtx, msg)
 }
 
 /**
  * 显示[Toast]
  */
-inline fun toast(msg: String?) {
+inline fun fdToast(msg: String?) {
     msg ?: return
 
     if (msg.isNotEmpty()) {
@@ -142,7 +142,7 @@ inline fun toast(msg: String?) {
 /**
  * 显示[Toast]
  */
-inline fun toast(resId: Int?) {
+inline fun fdToast(resId: Int?) {
     resId ?: return
 
     ToastUtils.show(CommHelper.mCtx as Activity, resId)

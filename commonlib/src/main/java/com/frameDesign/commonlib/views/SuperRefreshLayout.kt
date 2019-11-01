@@ -3,7 +3,7 @@ package com.frameDesign.commonlib.views
 import android.content.Context
 import android.util.AttributeSet
 import com.frameDesign.commonlib.R
-import com.frameDesign.commonlib.expand.zqColor
+import com.frameDesign.commonlib.expand.fdColor
 import com.scwang.smartrefresh.header.MaterialHeader
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 
@@ -18,7 +18,7 @@ class SuperRefreshLayout(context: Context?, attrs: AttributeSet?) :
 
     init {
         val materialHeader = MaterialHeader(context, attrs)
-        materialHeader.setColorSchemeColors(zqColor(R.color.colorPrimary))
+        materialHeader.setColorSchemeColors(fdColor(R.color.colorPrimary))
 
         setRefreshHeader(materialHeader)
 

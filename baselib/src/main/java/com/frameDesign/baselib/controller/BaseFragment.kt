@@ -16,8 +16,8 @@ import com.frameDesign.baselib.model.bean.internal.ErrorBean
 import com.frameDesign.baselib.view.HolderView
 import com.frameDesign.commonlib.expand.DEF_FUN_1
 import com.frameDesign.commonlib.expand.runUIThread
-import com.frameDesign.commonlib.expand.toast
-import com.frameDesign.commonlib.expand.zqColor
+import com.frameDesign.commonlib.expand.fdToast
+import com.frameDesign.commonlib.expand.fdColor
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.NetUtil
 import com.frameDesign.commonlib.views.dialog.FDProgressDialog
@@ -49,7 +49,7 @@ abstract class BaseFragment : BaseCommFragment(), IProgress {
                         .setAction("去设置") {
                             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
                         }
-                        .setActionTextColor(zqColor(R.color.colorPrimary))
+                        .setActionTextColor(fdColor(R.color.colorPrimary))
                         .show()
                 }
             } else {
@@ -96,7 +96,7 @@ abstract class BaseFragment : BaseCommFragment(), IProgress {
     override fun dispatchFailure(t: Throwable, msg: String) {
         if (!onInterceptErrorEvent(t, msg)) {
             if (msg.isNotEmpty()) {
-                toast(msg)
+                fdToast(msg)
             }
             when (t) {
                 is NetMiss -> showNoNetwork()

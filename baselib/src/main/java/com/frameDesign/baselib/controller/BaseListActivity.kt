@@ -7,24 +7,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.frameDesign.baselib.R
-import com.frameDesign.baselib.view.internal.IRefreshAndLoad
 import com.frameDesign.baselib.model.bean.DefResult
 import com.frameDesign.baselib.model.bean.internal.ErrorBean
 import com.frameDesign.baselib.model.bean.internal.Page
 import com.frameDesign.baselib.model.bean.internal.PageParam
 import com.frameDesign.baselib.model.bean.miss.EmptyDataMiss
 import com.frameDesign.baselib.view.adapter.isEmptyData
-import com.frameDesign.commonlib.expand.DEF_FUN_1
-import com.frameDesign.commonlib.expand.doOnLayout
-import com.frameDesign.commonlib.expand.runUIThread
-import com.frameDesign.commonlib.expand.updateLayoutSize
+import com.frameDesign.baselib.view.internal.IRefreshAndLoad
+import com.frameDesign.commonlib.expand.*
 import com.frameDesign.commonlib.views.SuperRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.constant.RefreshState
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import io.reactivex.Observable
 import org.jetbrains.anko.findOptional
-import org.jetbrains.anko.toast
 
 /**
  * ..
@@ -188,7 +184,7 @@ abstract class BaseListActivity : BaseActivity(),
                 if (!loadMore) {
                     dispatchFailure(e, msg)
                 } else {
-                    toast(msg)
+                    fdToast(msg)
                 }
             }
         }

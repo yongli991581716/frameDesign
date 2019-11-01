@@ -1,7 +1,7 @@
 package com.frameDesign.baselib.model.bean
 
 import com.frameDesign.baselib.model.bean.internal.ErrorBean
-import com.frameDesign.commonlib.expand.toast
+import com.frameDesign.commonlib.expand.fdToast
 
 
 /**
@@ -14,7 +14,7 @@ abstract class DefResult<T> : BaseResult<T>() {
     override fun doFinish(errorFinish: Boolean) {}
 
     override fun doFailure(eBean: ErrorBean) {
-        toast(eBean.msg)
+        fdToast(eBean.msg)
     }
 
 }

@@ -8,7 +8,19 @@ import com.frameDesign.baselib.BaseApplication
  * @date 2019-10-21
  */
 class Application : BaseApplication() {
-    override fun initDatas() {
+    override fun initContext() {
+        super.initContext()
         mCtx = this
     }
+
+    override fun initConfig() {
+        super.initConfig()
+    }
+
+    override fun initDatas() {
+        super.initDatas()
+
+    }
+
+
 }

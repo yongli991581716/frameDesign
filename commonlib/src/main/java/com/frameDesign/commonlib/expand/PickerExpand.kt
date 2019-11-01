@@ -1,12 +1,10 @@
-package com.zqkh.commlibrary.utilslibrary.expand
+package com.frameDesign.commonlib.expand
 
 import android.os.Build
 import android.view.View
 import cn.qqtheme.framework.picker.WheelPicker
 import cn.qqtheme.framework.popup.ConfirmPopup
 import com.frameDesign.commonlib.R
-import com.frameDesign.commonlib.expand.SCREEN_W
-import com.frameDesign.commonlib.expand.zqColor
 
 /**
  *  picker库扩展（AndroidPicker\）
@@ -44,14 +42,14 @@ fun <V : View, T : ConfirmPopup<V>> T.processVirtualKey() {
 fun WheelPicker.setStyle(): Unit {
     setLineSpaceMultiplier(2f)
 
-    val blueTextColor = zqColor(R.color.colorAccent)
+    val blueTextColor = fdColor(R.color.colorAccent)
 
     setSubmitTextColor(blueTextColor)
     setCancelTextColor(blueTextColor)
 
     setTextColor(
-        zqColor(R.color.colorDarkText),
-        zqColor(R.color.colorD8D8D8)
+        fdColor(R.color.colorDarkText),
+        fdColor(R.color.colorD8D8D8)
     )
 
     setCancelTextSize(16)
@@ -68,6 +66,6 @@ fun WheelPicker.setStyle(): Unit {
     setCancelable(false)
     setCanceledOnTouchOutside(false)
 
-    setTopLineColor(zqColor(R.color.colorE8E8E8))
-    setDividerColor(zqColor(R.color.colorE8E8E8))
+    setTopLineColor(fdColor(R.color.colorE8E8E8))
+    setDividerColor(fdColor(R.color.colorE8E8E8))
 }

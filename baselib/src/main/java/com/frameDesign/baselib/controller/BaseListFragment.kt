@@ -18,7 +18,7 @@ import com.frameDesign.baselib.view.adapter.BaseItemAdapter
 import com.frameDesign.baselib.view.adapter.isEmptyData
 import com.frameDesign.commonlib.expand.DEF_FUN_1
 import com.frameDesign.commonlib.expand.runUIThread
-import com.frameDesign.commonlib.expand.toast
+import com.frameDesign.commonlib.expand.fdToast
 import com.frameDesign.commonlib.views.SuperRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.constant.RefreshState
@@ -179,7 +179,7 @@ abstract class BaseListFragment : BaseFragment(),
                 if (!loadMore) {
                     dispatchFailure(e, msg)
                 } else {
-                    toast(msg)
+                    fdToast(msg)
                 }
             }
         }

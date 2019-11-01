@@ -7,17 +7,18 @@ import android.os.Handler
 import android.view.View
 import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baselib.controller.BaseActivity
-import com.frameDesign.commonreslib.const.router.RouterLogin
+import com.frameDesign.baselib.model.repository.HttpUrlRepository
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
+import com.frameDesign.commonreslib.const.router.RouterLogin
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-
-
+    private lateinit var helloW: List<Int>
     override fun getLayoutView(): Any = R.layout.activity_main
 
 
@@ -49,9 +50,9 @@ class MainActivity : BaseActivity() {
 
     fun openFDDiaglog(view: View) {
         DialogUtils.createAlertDialog(this, "提示", "确认是对的吗？", "取消",
-            DialogInterface.OnClickListener { dialog, which -> },
+            { dialog, which -> },
             "确认",
-            DialogInterface.OnClickListener { dialog, which -> }).show()
+            { dialog, which -> }).show()
     }
 
     fun openFDProgressDiaglog(view: View) {
@@ -59,17 +60,22 @@ class MainActivity : BaseActivity() {
 
             it.show()
         }
-        Handler().postDelayed(object : Runnable {
-
-            override fun run() {
-                dialog.dismiss()
-            }
-        }, 3000)
+        Handler().postDelayed({ dialog.dismiss() }, 3000)
 
     }
 
     fun openPicker(view: View) {
 
+    }
+
+    fun loadData(view: View) {
+        HttpUrlRepository.globalObtainH5Urls.bindSub {
+            var str = StringBuilder()
+            it.actions.forEach {
+                str.append("title=${it.title};ref=${it.rel};href=${it.href} \n")
+            }
+            tv_data.text = str
+        }
     }
 
 

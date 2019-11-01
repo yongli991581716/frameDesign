@@ -9,7 +9,7 @@ import com.frameDesign.commonlib.expand.nullOrEmpty
  * @author liyong
  * @date 2018/10/17
  */
-class ZQData<T> : DataSource<T> {
+class FDData<T> : DataSource<T> {
 
     val code: Int = 0
     val message: String = ""
@@ -42,7 +42,7 @@ class ZQData<T> : DataSource<T> {
  * @author JustBlue
  * @time 2018/10/12
  */
-class ZQList<T> : DataSource<List<T>> {
+class FDList<T> : DataSource<List<T>> {
 
     val code: Int = 0
     val message: String = ""
@@ -112,7 +112,7 @@ class Page<T> : DataSource<List<T>> {
  * @author JustBlue
  * @time 2018/10/12
  */
-class ZQPage<T> : DataSource<Page<T>> {
+class FDPage<T> : DataSource<Page<T>> {
 
     val code: Int = 0
     val message: String = ""

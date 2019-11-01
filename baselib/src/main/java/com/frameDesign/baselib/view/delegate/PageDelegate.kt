@@ -5,14 +5,13 @@ import android.view.View
 import com.frameDesign.baselib.R
 import com.frameDesign.baselib.controller.BaseCommActivity
 import com.frameDesign.baselib.controller.BaseCommFragment
-import com.frameDesign.commonlib.views.internal.BaseActivityDelegate
-import com.frameDesign.commonlib.views.internal.ILifeCycle
-import com.frameDesign.baselib.view.internal.HolderAction
-import com.frameDesign.baselib.view.delegate.HolderDelegate
 import com.frameDesign.baselib.view.HolderView
 import com.frameDesign.baselib.view.adapter.BaseAdapter
 import com.frameDesign.baselib.view.adapter.RetryAdapter
+import com.frameDesign.baselib.view.internal.HolderAction
 import com.frameDesign.commonlib.expand.replace
+import com.frameDesign.commonlib.views.internal.BaseActivityDelegate
+import com.frameDesign.commonlib.views.internal.ILifeCycle
 
 /**
  * @desc 用于代理

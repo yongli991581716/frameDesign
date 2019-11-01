@@ -5,19 +5,25 @@ import android.content.Intent
 import android.provider.Settings
 import android.view.View
 import com.frameDesign.baselib.R
-import com.frameDesign.baselib.view.delegate.PageDelegate
-import com.frameDesign.baselib.view.delegate.TitleDelegate
-import com.frameDesign.commonlib.views.internal.IProgress
+import com.frameDesign.baselib.model.bean.DefResult
+import com.frameDesign.baselib.model.bean.internal.ErrorBean
 import com.frameDesign.baselib.model.bean.miss.EmptyDataMiss
 import com.frameDesign.baselib.model.bean.miss.NetMiss
+import com.frameDesign.baselib.utils.expand.timerEvent
 import com.frameDesign.baselib.view.HolderView
-import com.frameDesign.commonlib.expand.zqColor
+import com.frameDesign.baselib.view.delegate.PageDelegate
+import com.frameDesign.baselib.view.delegate.TitleDelegate
+import com.frameDesign.commonlib.expand.DEF_FUN_1
+import com.frameDesign.commonlib.expand.fdColor
+import com.frameDesign.commonlib.expand.fdToast
+import com.frameDesign.commonlib.expand.runUIThread
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.NetUtil
 import com.frameDesign.commonlib.views.dialog.FDProgressDialog
+import com.frameDesign.commonlib.views.internal.IProgress
 import com.google.android.material.snackbar.Snackbar
+import io.reactivex.Observable
 import org.jetbrains.anko.contentView
-import org.jetbrains.anko.toast
 
 /**
  * @desc  自定义activity基类
@@ -29,7 +35,7 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
 
     protected var mProgressAlert: FDProgressDialog? = null
 
-    protected lateinit var mHoldDelegate: PageDelegate
+    protected lateinit var mPageDelegate: PageDelegate
 
     protected val mTitleDelegate by lazy(LazyThreadSafetyMode.NONE) {
         TitleDelegate(mActivity, this) {
@@ -43,7 +49,7 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
     override fun initDataBeforeView() {
         super.initDataBeforeView()
 
-        mHoldDelegate = PageDelegate(this) {
+        mPageDelegate = PageDelegate(this) {
             if (it == HolderView.state_netMiss) {
                 if (NetUtil.isConnected()) {
                     retryLoadData()
@@ -52,7 +58,7 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
                         .setAction("去设置") {
                             startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
                         }
-                        .setActionTextColor(zqColor(R.color.colorPrimary))
+                        .setActionTextColor(fdColor(R.color.colorPrimary))
                         .show()
                 }
             } else {
@@ -70,19 +76,19 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
 
     //
     override fun bindHolderView(view: View) =
-        mHoldDelegate.initHolderView(view)
+        mPageDelegate.initHolderView(view)
 
-    override fun showLoading() = mHoldDelegate.showLoading()
+    override fun showLoading() = mPageDelegate.showLoading()
 
-    override fun showContent() = mHoldDelegate.showContent()
+    override fun showContent() = mPageDelegate.showContent()
 
-    override fun showEmptyData() = mHoldDelegate.showEmpty()
+    override fun showEmptyData() = mPageDelegate.showEmpty()
 
-    override fun showDataError() = mHoldDelegate.showError()
+    override fun showDataError() = mPageDelegate.showError()
 
-    override fun showNoNetwork() = mHoldDelegate.showNetMiss()
+    override fun showNoNetwork() = mPageDelegate.showNetMiss()
 
-    override fun showViewByStatus(status: Int) = mHoldDelegate.showByState(status)
+    override fun showViewByStatus(status: Int) = mPageDelegate.showByState(status)
 
     override fun dispatchFailure(t: Throwable, msg: String) {
         if (!onInterceptErrorEvent(t, msg)) {
@@ -94,7 +100,7 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
                     showDataError()
 
                     if (msg.isNotEmpty()) {
-                        toast(msg)
+                        fdToast(msg)
                     }
                 }
             }
@@ -130,4 +136,48 @@ abstract class BaseActivity : BaseCommActivity(), IProgress {
     }
 
 
+    /**
+     * 添加界面绑定的事件注册
+     * @receiver Observable<T>
+     * @param onFinished  处理终止事件(包括正常完成\异常导致的终止, 两个诱因为独立的)
+     * @param onFailure   处理异常事件, 默认调用[dispatchErrorEvent]
+     * @param onSuccess   处理响应数据, 必须添加
+     */
+    protected fun <T> Observable<T>.bindSub(
+        onFinished: (hasError: Boolean) -> Unit = DEF_FUN_1,
+        onFailure: (error: ErrorBean) -> Unit = DEF_FUN_1,
+        onSuccess: (data: T) -> Unit
+    ) =
+        this.bindDestroy()
+            .runUIThread()
+            .subscribe(object : DefResult<T>() {
+
+                override fun doFinish(errorFinish: Boolean) {
+                    if (onFinished == DEF_FUN_1) {
+                        hideProgress()
+                    } else {
+                        onFinished(errorFinish)
+                    }
+                }
+
+                override fun doFailure(eBean: ErrorBean) {
+                    val (e, msg) = eBean
+
+                    if (onFailure == DEF_FUN_1) {
+                        dispatchFailure(e, msg)
+                    } else {
+                        onFailure(eBean)
+                    }
+                }
+
+                override fun doSuccess(data: T) = onSuccess(data)
+            })
+
+    fun delayHideProgress() {
+        timerEvent(1000)
+            .bindDestroy()
+            .subscribe {
+                hideProgress()
+            }
+    }
 }

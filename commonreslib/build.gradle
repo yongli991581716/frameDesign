@@ -84,9 +84,16 @@ dependencies {
     api deps.immersion.statusbar
     //辅助库
     api deps.assist.swipeback
+    api deps.assist.gson
     //view库
     api deps.view.smartrefreshlayout
     api deps.view.Smartrefreshheader
     api deps.view.recycleradapter
-
+    //网络库
+    api deps.network.retrofit.retrofit
+    api deps.network.retrofit.retrofit_gson
+    api deps.network.retrofit.retrofit_adapter
+    api deps.network.okhttp.okhttp
+    api deps.network.okhttp.logging
+    api deps.network.networking.android_networking
 }

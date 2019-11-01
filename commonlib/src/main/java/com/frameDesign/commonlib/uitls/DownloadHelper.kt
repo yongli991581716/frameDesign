@@ -10,7 +10,7 @@ import android.os.Build
 import android.view.LayoutInflater
 import androidx.core.content.FileProvider
 import com.frameDesign.commonlib.R
-import com.frameDesign.commonlib.expand.toast
+import com.frameDesign.commonlib.expand.fdToast
 import com.frameDesign.commonlib.views.dialog.FDDialog
 import com.liulishuo.filedownloader.BaseDownloadTask
 import com.liulishuo.filedownloader.DownloadTask
@@ -99,7 +99,7 @@ object DownloadHelper {
 
             override fun error(task: BaseDownloadTask?, e: Throwable?) {
                 ctx.runOnUiThread {
-                    e?.message?.let { ctx.toast(it) }
+                    e?.message?.let { ctx.fdToast(it) }
                 }
             }
 

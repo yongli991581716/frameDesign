@@ -5,16 +5,16 @@ import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.alibaba.android.arouter.launcher.ARouter
 import com.facebook.drawee.backends.pipeline.Fresco
-import com.frameDesign.commonreslib.const.ConstConfig
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.AndPermissionProduct
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
+import com.frameDesign.commonreslib.const.ConstConfig
 
 /**
  * Created by liyong on 2019-10-21.
  */
-abstract class BaseApplication : MultiDexApplication() {
+open class BaseApplication : MultiDexApplication() {
 
     companion object {
         private var mActivityList = ArrayList<Activity>()
@@ -24,7 +24,20 @@ abstract class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        //初始化context
+        initContext()
+        //初始化配置
+        initConfig()
+        //初始化数据
         initDatas()
+
+    }
+
+    open fun initContext() {
+
+    }
+
+    open fun initConfig() {
         //初始化路由
         initRouter()
         //下载管理器初始化
@@ -36,7 +49,9 @@ abstract class BaseApplication : MultiDexApplication() {
         //图片库初始化
         Fresco.initialize(mCtx)
     }
+    open fun initDatas() {
 
+    }
     /**
      * 初始化路由
      */
@@ -66,5 +81,5 @@ abstract class BaseApplication : MultiDexApplication() {
         return mActivityList
     }
 
-    abstract fun initDatas()
+
 }

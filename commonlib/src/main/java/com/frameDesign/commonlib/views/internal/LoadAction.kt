@@ -1,4 +1,4 @@
-package com.zqkh.commlibrary.internal
+package com.frameDesign.commonlib.views.internal
 
 /**
  * @desc  加载数据接口

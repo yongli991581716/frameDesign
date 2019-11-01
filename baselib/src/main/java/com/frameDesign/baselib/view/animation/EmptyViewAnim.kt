@@ -9,7 +9,7 @@ import com.frameDesign.commonlib.expand.dp2px
 import org.jetbrains.anko.findOptional
 
 /**
- * BaseZQAdapter 空数据界面进入动画
+ * BaseAdapter 空数据界面进入动画
  *
  * @author liyong
  * @time 2018/11/7

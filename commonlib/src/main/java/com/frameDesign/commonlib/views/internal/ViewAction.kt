@@ -1,4 +1,4 @@
-package com.zqkh.commlibrary.internal
+package com.frameDesign.commonlib.views.internal
 
 import android.view.View
 
@@ -12,7 +12,7 @@ interface ViewAction {
 
     /**
      * 绑定HolderView
-     * 如: View已是[com.zqkh.commlibrary.widgetlibrary.holder.HolderView]直接使用
+     * 如: View已是[com.holder.HolderView]直接使用
      * @param view View
      */
     fun bindHolderView(view: View)

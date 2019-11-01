@@ -16,8 +16,8 @@ import com.frameDesign.baselib.R
 import com.frameDesign.commonlib.views.internal.BaseActivityDelegate
 import com.frameDesign.commonlib.views.internal.ILifeCycle
 import com.frameDesign.commonlib.expand.dp2px
-import com.frameDesign.commonlib.expand.zqColor
-import com.frameDesign.commonlib.expand.zqString
+import com.frameDesign.commonlib.expand.fdColor
+import com.frameDesign.commonlib.expand.fdString
 import com.frameDesign.commonlib.uitls.SystemUtil
 import com.jaeger.library.StatusBarUtil
 import com.frameDesign.commonlib.expand.doOnClick
@@ -120,10 +120,10 @@ class TitleDelegate(
     private var mRightTextResource: Any? = null
     private var mContentTextResource: Any? = null
 
-    private var mLeftTextColor = zqColor(R.color.colorWhite)
-    private var mRightTextColor = zqColor(R.color.colorWhite)
-    private var mContentTextColor = zqColor(R.color.colorWhite)
-    private var mBackgroundColor = zqColor(R.color.colorPrimary)
+    private var mLeftTextColor = fdColor(R.color.colorWhite)
+    private var mRightTextColor = fdColor(R.color.colorWhite)
+    private var mContentTextColor = fdColor(R.color.colorWhite)
+    private var mBackgroundColor = fdColor(R.color.colorPrimary)
 
     private var mTitleClick: View.OnClickListener? = null
     private var mLiftClick: View.OnClickListener? = null
@@ -297,7 +297,7 @@ class TitleDelegate(
      * 设置右边标题
      */
     fun setTitleLeftColor(@ColorRes resId: Int) {
-        mLeftTextColor = zqColor(resId)
+        mLeftTextColor = fdColor(resId)
 
         mTextLeft?.textColor = mLeftTextColor
     }
@@ -306,7 +306,7 @@ class TitleDelegate(
      * 设置右边标题
      */
     fun setTitleRightColor(@ColorRes resId: Int) {
-        mRightTextColor = zqColor(resId)
+        mRightTextColor = fdColor(resId)
 
         mTextRight?.textColor = mRightTextColor
     }
@@ -328,7 +328,7 @@ class TitleDelegate(
     fun setTitleContent(@StringRes resId: Int) {
         mContentTextResource = resId
 
-        mTextCenter?.text = zqString(resId)
+        mTextCenter?.text = fdString(resId)
         mTitleContent?.visibility = View.VISIBLE
     }
 
@@ -336,13 +336,13 @@ class TitleDelegate(
      * 设置中间标题颜色
      */
     fun setTitleContentColor(@ColorRes resId: Int) {
-        mContentTextColor = zqColor(resId)
+        mContentTextColor = fdColor(resId)
 
         mTextCenter?.textColor = mContentTextColor
     }
 
     fun setTitleBackground(@ColorRes resId: Int) {
-        mBackgroundColor = zqColor(resId)
+        mBackgroundColor = fdColor(resId)
 
         mTitleLayout?.setBackgroundColor(mBackgroundColor)
     }

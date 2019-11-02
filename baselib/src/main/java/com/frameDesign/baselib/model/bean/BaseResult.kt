@@ -1,12 +1,12 @@
 package com.frameDesign.baselib.model.bean
 
+import com.frameDesign.baselib.model.bean.internal.ErrorBean
 import com.frameDesign.baselib.model.bean.miss.BaseMiss
 import com.frameDesign.baselib.model.bean.miss.DefMiss
 import com.frameDesign.baselib.model.bean.miss.EmptyDataMiss
 import com.frameDesign.baselib.model.bean.miss.LoginMiss
-import com.frameDesign.baselib.model.bean.internal.ErrorBean
-import com.frameDesign.commonreslib.const.ConstConfig
 import com.frameDesign.commonlib.expand.DEF_FUN
+import com.frameDesign.commonreslib.const.ConstConfig
 import io.reactivex.Observer
 import io.reactivex.disposables.Disposable
 import java.io.IOException

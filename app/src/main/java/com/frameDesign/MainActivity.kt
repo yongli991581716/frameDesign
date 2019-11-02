@@ -1,7 +1,6 @@
 package com.frameDesign
 
 import android.Manifest
-import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -69,12 +68,17 @@ class MainActivity : BaseActivity() {
     }
 
     fun loadData(view: View) {
-        HttpUrlRepository.globalObtainH5Urls.bindSub {
-            var str = StringBuilder()
-            it.actions.forEach {
-                str.append("title=${it.title};ref=${it.rel};href=${it.href} \n")
-            }
-            tv_data.text = str
+//        HttpUrlRepository.globalObtainH5Urls.bindSub {
+//            var str = StringBuilder()
+//            it.actions.forEach {
+//                str.append("title=${it.title};ref=${it.rel};href=${it.href} \n")
+//            }
+//            tv_data.text = str
+//        }
+
+        //TestHttpRepository.obtainUrl()
+        HttpUrlRepository.requestLogin().bindSub {
+            tv_data.text = "name=${it.user?.name};token=${it.token}"
         }
     }
 

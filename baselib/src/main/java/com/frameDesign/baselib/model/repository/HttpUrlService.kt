@@ -6,6 +6,7 @@ import com.frameDesign.baselib.model.bean.internal.FDData
 import com.frameDesign.baselib.model.bean.internal.FDList
 import com.frameDesign.baselib.model.bean.test.ADTest
 import com.frameDesign.baselib.model.bean.test.TestUserBean
+import com.frameDesign.baselib.model.bean.test.UserTokenBean
 import io.reactivex.Observable
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -19,6 +20,7 @@ import retrofit2.http.*
 interface HttpUrlService {
 
     companion object {
+        const val api_captcha_login = "api_captcha_login"
         const val api_ad_list = "api_ad_list"
         const val api_user_bindOrLoginPhone = "api_user_bindOrLoginPhone"
 
@@ -46,4 +48,11 @@ interface HttpUrlService {
     @POST(api_user_bindOrLoginPhone)
     fun obtainSYList(@Body body: RequestBody): Observable<FDData<TestUserBean>>
 
+    /**
+     * 请求发生验证码
+     * @param body RequestBody
+     * @return Observable<ZQData<String>>
+     */
+    @POST(api_captcha_login)
+    fun requestLogin(@Body body: RequestBody): Observable<FDData<UserTokenBean>>
 }

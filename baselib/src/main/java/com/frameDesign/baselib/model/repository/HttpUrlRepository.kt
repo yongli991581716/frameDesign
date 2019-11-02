@@ -6,6 +6,7 @@ import com.frameDesign.baselib.model.bean.actions.ActionsH5Bean
 import com.frameDesign.baselib.model.bean.miss.NotFoundUrlMiss
 import com.frameDesign.baselib.model.bean.test.ADTest
 import com.frameDesign.baselib.model.bean.test.TestUserBean
+import com.frameDesign.baselib.model.bean.test.UserTokenBean
 import com.frameDesign.baselib.utils.ActionsHelp
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
@@ -89,4 +90,14 @@ object HttpUrlRepository : BaseRepository<HttpUrlService>() {
             .rebase()
     }
 
+    fun requestLogin(): Observable<UserTokenBean> {
+
+        return service.requestLogin(
+            jsonParams(
+                "captcha" to "0817",
+                "phone" to "18202894517"
+            )
+        ).unitConnect().rebase()
+
+    }
 }

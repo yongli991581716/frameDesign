@@ -112,6 +112,7 @@ internal object DataIntercept : Interceptor {
                 throw LoginMiss()
             }
 
+            //此处可作全局apiException处理封装（可选）
             jsonMsg
         }
 

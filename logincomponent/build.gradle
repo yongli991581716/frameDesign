@@ -91,6 +91,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     //资源前缀规范（layout文件名、values下name）
     resourcePrefix "${project.name}_"
 }

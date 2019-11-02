@@ -4,7 +4,6 @@ import android.Manifest
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import com.alibaba.android.arouter.launcher.ARouter
 import com.frameDesign.baselib.controller.BaseActivity
 import com.frameDesign.baselib.model.repository.HttpUrlRepository
 import com.frameDesign.commonlib.uitls.DialogUtils
@@ -17,14 +16,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
 
-    private lateinit var helloW: List<Int>
     override fun getLayoutView(): Any = R.layout.activity_main
 
 
     override fun initView(state: Bundle?) {
 
         mTitleDelegate.setTitleContent("首页")
-        mTitleDelegate.switchBlueTheme()
     }
 
     fun readWritePermission(view: View) {
@@ -84,7 +81,7 @@ class MainActivity : BaseActivity() {
 
 
     fun jumpToGood(view: View) {
-        ARouter.getInstance().build(RouterLogin.LOGIN_ACTIVITY).navigation()
+        mARouter.build(RouterLogin.LOGIN_ACTIVITY).navigation()
     }
 
     fun downloadFile(view: View) {

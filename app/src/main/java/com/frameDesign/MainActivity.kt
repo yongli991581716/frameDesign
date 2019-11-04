@@ -4,9 +4,9 @@ import android.Manifest
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.frameDesign.baselib.controller.BaseActivity
 import com.frameDesign.baselib.model.repository.HttpUrlRepository
-import com.frameDesign.baselib.model.repository.test.TestHttpRepository
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
@@ -14,6 +14,7 @@ import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
 import com.frameDesign.commonreslib.const.router.RouterLogin
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : BaseActivity() {
 
@@ -23,6 +24,20 @@ class MainActivity : BaseActivity() {
     override fun initView(state: Bundle?) {
 
         mTitleDelegate.setTitleContent("首页")
+
+
+        loadFrescoIcon()
+    }
+
+    private fun loadFrescoIcon() {
+        val controller = Fresco.newDraweeControllerBuilder()
+            .setUri("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572881639681&di=b27e8c04074cea2c83a5c4b938b1c09a&imgtype=0&src=http%3A%2F%2Fcdn-users1.imagechef.com%2Fic%2Fstored%2F2%2F140325%2Fapi21979a900bdc8bad.jpg")
+            .setTapToRetryEnabled(true)
+            .setOldController(my_image_view.controller)
+            //.setControllerListener(listener)
+            .build()
+
+        my_image_view.setImageURI("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572881639681&di=b27e8c04074cea2c83a5c4b938b1c09a&imgtype=0&src=http%3A%2F%2Fcdn-users1.imagechef.com%2Fic%2Fstored%2F2%2F140325%2Fapi21979a900bdc8bad.jpg")
     }
 
     fun readWritePermission(view: View) {
@@ -67,15 +82,15 @@ class MainActivity : BaseActivity() {
 
     fun loadData(view: View) {
         tv_data.text = ""
-//        HttpUrlRepository.globalObtainH5Urls.bindSub {
-//            var str = StringBuilder()
-//            it.actions.forEach {
-//                str.append("title=${it.title};ref=${it.rel};href=${it.href} \n")
-//            }
-//            tv_data.text = str
-//        }
+        HttpUrlRepository.globalObtainH5Urls.bindSub {
+            var str = StringBuilder()
+            it.actions.forEach {
+                str.append("title=${it.title};ref=${it.rel};href=${it.href} \n")
+            }
+            tv_data.text = str
+        }
 
-        TestHttpRepository.obtainUrl()
+        //TestHttpRepository.obtainUrl()
 //        HttpUrlRepository.requestLogin().bindSub {
 //            tv_data.text = "name=${it.user?.name};token=${it.token}"
 //        }

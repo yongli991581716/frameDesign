@@ -5,11 +5,13 @@ import android.app.Application
 import androidx.multidex.MultiDexApplication
 import com.alibaba.android.arouter.launcher.ARouter
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.frameDesign.baselib.utils.FrescoHelp
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.AndPermissionProduct
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonreslib.const.ConstConfig
+
 
 /**
  * Created by liyong on 2019-10-21.
@@ -47,11 +49,13 @@ open class BaseApplication : MultiDexApplication() {
         //权限工厂初始化,此处使用AndPermission库
         PermissionFactory.init(AndPermissionProduct())
         //图片库初始化
-        Fresco.initialize(mCtx)
+        Fresco.initialize(mCtx, FrescoHelp.getConfig(mCtx))
     }
+
     open fun initDatas() {
 
     }
+
     /**
      * 初始化路由
      */

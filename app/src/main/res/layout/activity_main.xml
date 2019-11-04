@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -90,8 +91,8 @@
             android:id="@+id/tv_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="@dimen/dt_50"
+            android:gravity="center"
             android:padding="@dimen/dt_5"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/font_14"
@@ -110,5 +111,32 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    <include layout="@layout/layout_holder_default"/>
+    <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/my_image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:backgroundImage="@color/colorStoneBlue"
+            fresco:fadeDuration="300"
+            fresco:failureImage="@mipmap/ic_error_notice"
+            fresco:failureImageScaleType="centerInside"
+            fresco:placeholderImage="@color/colorAccentText"
+            fresco:placeholderImageScaleType="fitCenter"
+            fresco:pressedStateOverlayImage="@color/colorAccent"
+            fresco:progressBarAutoRotateInterval="1000"
+            fresco:retryImage="@drawable/ic_launcher_background"
+            fresco:retryImageScaleType="centerCrop"
+            fresco:roundAsCircle="false"
+            fresco:roundBottomLeft="false"
+            fresco:roundBottomRight="true"
+            fresco:roundTopLeft="true"
+            fresco:roundTopRight="false"
+            fresco:roundWithOverlayColor="@color/colorPrimary"
+            fresco:roundedCornerRadius="1dp"
+            fresco:roundingBorderColor="@color/colorPrimary"
+            fresco:roundingBorderWidth="2dp" />
+
+    <include layout="@layout/layout_holder_default" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.os.Handler
 import android.view.View
 import com.frameDesign.baselib.controller.BaseActivity
 import com.frameDesign.baselib.model.repository.HttpUrlRepository
+import com.frameDesign.baselib.model.repository.test.TestHttpRepository
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.IPermissionListener
@@ -73,10 +74,10 @@ class MainActivity : BaseActivity() {
 //            tv_data.text = str
 //        }
 
-        //TestHttpRepository.obtainUrl()
-        HttpUrlRepository.requestLogin().bindSub {
-            tv_data.text = "name=${it.user?.name};token=${it.token}"
-        }
+        TestHttpRepository.obtainUrl()
+//        HttpUrlRepository.requestLogin().bindSub {
+//            tv_data.text = "name=${it.user?.name};token=${it.token}"
+//        }
     }
 
 

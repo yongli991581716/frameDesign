@@ -52,7 +52,7 @@ public class NetUtil {
 
     public static boolean isConnected() {
         NetworkInfo info = getActiveNetworkInfo();
-        return info != null && info.isConnected();
+        return info != null && info.isAvailable();
     }
 
     @RequiresPermission(ACCESS_NETWORK_STATE)

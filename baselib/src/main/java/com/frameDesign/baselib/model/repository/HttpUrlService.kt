@@ -53,6 +53,7 @@ interface HttpUrlService {
      * @param body RequestBody
      * @return Observable<ZQData<String>>
      */
+    @Headers("Cache-Control: max-age=10000")
     @POST(api_captcha_login)
     fun requestLogin(@Body body: RequestBody): Observable<FDData<UserTokenBean>>
 }

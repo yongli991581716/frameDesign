@@ -12,9 +12,17 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Base64;
+
 import com.frameDesign.commonlib.CommHelper;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.UUID;
 
@@ -30,7 +38,7 @@ public class FileUtils {
     private static String MAIN_PATH = "main";
     private static String TEMP_PATH = "temp";
 
-    private static Context ctx= CommHelper.mCtx;
+    private static Context ctx = CommHelper.mCtx;
 
     /**
      * 初始化
@@ -48,6 +56,20 @@ public class FileUtils {
      */
     public static String getVisiblePath() {
         File dir = new File(Environment.getExternalStorageDirectory(), "health_manager");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        return dir.getPath();
+    }
+
+    /**
+     * 根据文件名字获取缓存文件路径
+     *
+     * @param fileName 文件名
+     * @return
+     */
+    public static String getCachePath(String fileName) {
+        File dir = new File(getCacheFile(), fileName);
         if (!dir.exists()) {
             dir.mkdirs();
         }

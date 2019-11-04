@@ -66,6 +66,7 @@ class MainActivity : BaseActivity() {
     }
 
     fun loadData(view: View) {
+        tv_data.text = ""
 //        HttpUrlRepository.globalObtainH5Urls.bindSub {
 //            var str = StringBuilder()
 //            it.actions.forEach {

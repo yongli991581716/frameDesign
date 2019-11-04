@@ -31,6 +31,7 @@ interface HttpUrlService {
      * @param url String
      * @return Observable<ActionsBean>
      */
+    @Headers("Cache-Control: max-age=30")
     @GET()
     fun obtainUrls(@Url url: String): Observable<ActionsBean>
 
@@ -53,7 +54,7 @@ interface HttpUrlService {
      * @param body RequestBody
      * @return Observable<ZQData<String>>
      */
-    @Headers("Cache-Control: max-age=10000")
+    @Headers("Cache-Control: max-age=10")
     @POST(api_captcha_login)
     fun requestLogin(@Body body: RequestBody): Observable<FDData<UserTokenBean>>
 }

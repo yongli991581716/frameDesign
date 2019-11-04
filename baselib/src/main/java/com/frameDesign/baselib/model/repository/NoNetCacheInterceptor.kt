@@ -18,7 +18,7 @@ class NoNetCacheInterceptor : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val req: Request = if (NetUtil.isConnected()) {
-            //有网络,检查10秒内的缓存
+            //有网络
             chain.request()
         } else {
             //无网络,检查30天内的缓存,即使是过期的缓存

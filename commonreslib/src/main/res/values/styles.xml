@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -11,14 +11,28 @@
         <item name="android:windowTranslucentStatus">false</item>
     </style>
 
-    <style name="wrap_wrap">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+    <style name="base_background" parent="@style/match_wrap_v">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/colorBackground</item>
 
     </style>
 
-    <style name="wrap_wrap_h" parent="@style/wrap_wrap">
-        <item name="android:orientation">horizontal</item>
+    <!-- 适配沉浸式title -->
+    <style name="base_immersion_background" parent="base_background">
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="match_match">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+
+    </style>
+
+    <style name="wrap_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
 
     </style>
 
@@ -34,7 +48,44 @@
 
     </style>
 
+    <style name="match_match_h" parent="@style/match_match">
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="match_match_v" parent="@style/match_match">
+        <item name="android:orientation">vertical</item>
+
+    </style>
+
+
+    <style name="wrap_wrap_h" parent="@style/wrap_wrap">
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="wrap_wrap_v" parent="@style/wrap_wrap">
+        <item name="android:orientation">vertical</item>
+
+    </style>
+
+    <style name="match_wrap_h" parent="@style/match_wrap">
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
     <style name="match_wrap_v" parent="@style/match_wrap">
+        <item name="android:orientation">vertical</item>
+
+    </style>
+
+
+    <style name="wrap_match_h" parent="@style/wrap_match">
+        <item name="android:orientation">horizontal</item>
+
+    </style>
+
+    <style name="wrap_match_v" parent="@style/wrap_match">
         <item name="android:orientation">vertical</item>
 
     </style>

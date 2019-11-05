@@ -2,17 +2,17 @@ package com.framedesign.goodcomponent
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.frameDesign.baselib.controller.BaseActivity
 import com.frameDesign.commonreslib.const.router.RouterLogin
 
 @Route(path = "/good/good")
-class GoodActivity : AppCompatActivity() {
+class GoodActivity : BaseActivity() {
+    override fun getLayoutView() = R.layout.goodcomponent_activity_good
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.goodcomponent_activity_good)
+    override fun initView(state: Bundle?) {
+        mTitleDelegate.setTitleContent("商品组件")
     }
 
     fun jumpToLogin(view: View) {

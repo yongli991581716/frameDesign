@@ -10,11 +10,11 @@
         <!-- 设置状态栏不为沉浸式状态 false -->
         <item name="android:windowTranslucentStatus">false</item>
         <!-- 状态栏主题色，默认false. true，状态栏图标文字颜色为黑色；false, 状态栏图标文字颜色为白色-->
-        <!--<item name="android:windowLightStatusBar">false</item>-->
+        <!--        <item name="android:windowLightStatusBar">false</item>-->
 
         <!--若导航栏 windowTranslucentNavigation为true,则导航栏和状态栏都会变为沉浸式，-->
-        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
         <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
-        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>

@@ -12,10 +12,10 @@ import com.frameDesign.baselib.controller.life.RxActivityResult
 import com.frameDesign.commonlib.expand.runUIThread
 import com.frameDesign.commonlib.uitls.FitHelper
 import com.frameDesign.commonlib.views.internal.ILifeCycle
-import com.tbruyelle.rxpermissions2.RxPermissions
-import com.umeng.analytics.MobclickAgent
 import com.frameDesign.commonlib.views.internal.LoadAction
 import com.frameDesign.commonlib.views.internal.ViewAction
+import com.tbruyelle.rxpermissions2.RxPermissions
+import com.umeng.analytics.MobclickAgent
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity

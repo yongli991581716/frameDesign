@@ -9,5 +9,6 @@
 
         <!-- 设置状态栏不为沉浸式状态 false -->
         <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

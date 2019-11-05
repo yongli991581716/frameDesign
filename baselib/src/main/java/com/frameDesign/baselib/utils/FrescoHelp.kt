@@ -7,6 +7,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig
 import com.frameDesign.baselib.BaseApplication
 import com.frameDesign.commonlib.uitls.FileUtils
 
+
 /**
  * fresco图片库配置
  * @author liyong
@@ -14,7 +15,16 @@ import com.frameDesign.commonlib.uitls.FileUtils
  */
 object FrescoHelp {
 
-    private const val CACHE_SIZE = 50L * ByteConstants.MB
+    private val MAX_MEMORY = Runtime.getRuntime().maxMemory() / 4
+    private const val MAX_CACHE_SIZE = 30L * ByteConstants.MB
+    private val CACHE_SIZE by lazy {
+        var value = if (MAX_MEMORY < MAX_CACHE_SIZE) {
+            MAX_MEMORY
+        } else {
+            MAX_CACHE_SIZE
+        }
+        value
+    }
     private const val FILE_NAME = "fresco_images"
 
     fun getConfig(context: Context): ImagePipelineConfig {

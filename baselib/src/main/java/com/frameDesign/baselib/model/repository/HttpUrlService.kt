@@ -40,6 +40,7 @@ interface HttpUrlService {
      * @param url String
      * @return Observable<ActionsBean>
      */
+    //@Headers("Cache-Control:no-store")//请求响应都不用缓存
     @GET()
     fun obtainH5Urls(@Url url: String): Observable<ActionsH5Bean>
 

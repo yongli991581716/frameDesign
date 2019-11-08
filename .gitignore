@@ -12,11 +12,3 @@
 /build
 /captures
 .externalNativeBuild
-/app
-/goodcomponent
-/logincomponent
-/annotation
-/annotation_compiler
-/baselib
-/commonlib
-/commonreslib

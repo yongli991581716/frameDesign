@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/baselib/src/main/java/com/frameDesign" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/commonreslib" vcs="Git" />
   </component>
 </project>

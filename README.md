@@ -5,6 +5,7 @@
 *** 
 
 2. **打包信息**   
+> MYAPP_RELEASE_STORE_FILE=fd.keystore
 > MYAPP_RELEASE_STORE_PASSWORD=android  
 > MYAPP_RELEASE_KEY_ALIAS=androiddebugkey  
 > MYAPP_RELEASE_KEY_PASSWORD=android  

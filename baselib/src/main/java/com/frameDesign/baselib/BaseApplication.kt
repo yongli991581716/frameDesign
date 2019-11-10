@@ -14,6 +14,7 @@ import com.frameDesign.commonreslib.const.ConstConfig
 
 
 /**
+ * application基类
  * Created by liyong on 2019-10-21.
  */
 open class BaseApplication : MultiDexApplication() {

@@ -13,6 +13,7 @@ import com.frameDesign.commonlib.uitls.permission.IPermissionListener
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
 import com.frameDesign.commonreslib.const.router.RouterLogin
+import com.taobao.sophix.SophixManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -94,6 +95,9 @@ class MainActivity : BaseActivity() {
 //        }
     }
 
+    fun loadPatch(view: View) {
+        SophixManager.getInstance().queryAndLoadNewPatch()
+    }
 
     fun jumpToGood(view: View) {
         mARouter.build(RouterLogin.LOGIN_ACTIVITY).navigation()

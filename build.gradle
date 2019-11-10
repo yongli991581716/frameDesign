@@ -41,6 +41,9 @@ buildscript {
                     'kgp'        : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin}",
                     'kotlin_jdk7': "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}",
             ],
+            'fix'       : [
+                    'sophix': 'com.aliyun.ams:alicloud-android-hotfix:3.2.9',
+            ],
             'photo'     : [
                     'fresco': [
                             'fresco'       : "com.facebook.fresco:fresco:${versions.fresco_version}",
@@ -102,17 +105,17 @@ buildscript {
                     ],
             ],
             'network'   : [
-                    'retrofit': [
+                    'retrofit'  : [
                             'retrofit'        : "com.squareup.retrofit2:retrofit:${versions.retrofit_version}",
                             'retrofit_gson'   : "com.squareup.retrofit2:converter-gson:${versions.retrofit_version}",// retrofit json 解析库(Gson)
                             'retrofit_adapter': "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit_version}",
                     ],
-                    'okhttp'  : [
+                    'okhttp'    : [
                             'okhttp' : "com.squareup.okhttp3:okhttp:${versions.okhttp_version}",
                             'logging': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_version}",
                     ],
-                    'networking':[
-                            'android_networking':'com.amitshekhar.android:android-networking:1.0.2',
+                    'networking': [
+                            'android_networking': 'com.amitshekhar.android:android-networking:1.0.2',
                     ],
             ],
             'immersion' : [
@@ -141,6 +144,10 @@ buildscript {
         maven {
             url 'https://dl.bintray.com/umsdk/release'
         }
+        //sophix热修复仓库
+        maven {
+            url "http://maven.aliyun.com/nexus/content/repositories/releases"
+        }
 
     }
     dependencies {
@@ -163,6 +170,10 @@ allprojects {
         //umeng仓库
         maven {
             url 'https://dl.bintray.com/umsdk/release'
+        }
+        //sophix热修复仓库
+        maven {
+            url "http://maven.aliyun.com/nexus/content/repositories/releases"
         }
 
     }

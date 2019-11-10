@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--访问无限网络状态权限-->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application>
         <!-- 安卓7.0后，读写文件需要配置共享且res文件下添加xml/file_paths.xml -->
         <provider
@@ -23,5 +24,18 @@
                     android:name="android.support.FILE_PROVIDER_PATHS"
                     android:resource="@xml/file_paths" />
         </provider>
+
+
+        <!-- sophix热修复管理平台信息 -->
+        <meta-data
+                android:name="com.taobao.android.hotfix.IDSECRET"
+                android:value="28136237-1" />
+        <meta-data
+                android:name="com.taobao.android.hotfix.APPSECRET"
+                android:value="40a9eb1dbc8c555a75638e81b7f1edd4" />
+        <meta-data
+                android:name="com.taobao.android.hotfix.RSASECRET"
+                android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCLgHWpUh2o1oWRafkebhrPKHH3pxFQ/UfgDUzON/HVwbTJB5+/IULnM4SmsPvwLcF7zDg2lhlfVSqVk/wSL0X+up2IMOaxNbd2fdnhpwluNJjnKFo0T+M46H5KgGxvK9a75LUvSvi2LILhypLuiz3B5N04iMUIg6PeFIq1CvkTUMFJsj6zUHle1hfEtOCJfrqnjZzlHku+E4Ci79Yg89IJiKeMVEalXfptMUmECiDyyR+4x30/BKcgZLXAhRg+kAq11xsIjlGOat87StLf7lHR08D1IOOw7CiwvpBVntoysqqeoN/oqu4xTUvxZTc5QMUalsZWaZ13Jyi3OUPYMmZjAgMBAAECggEABQK+NzC94/ygm5KE4jTuPZakUVLs6k3OsRuJMLcNtrHYfogJkuHs90UAdMRSqFPcaUfylPNbQfNbLjg8i6KrDvVBB01KW/8j8dufYd2QFydIfrUSWGKuNLMVJjPqsSuP8PvMDkDRIioDIX0XPf4+X6KK16cB/MZNsoJmYQ5d1/W3BxIRCs5ER9V1sT8ilq1RRTH7Udt6QInny+OPiICRRUFV82l1fDkvoFgqUQ1ywDESVPP1agNZkqr/QYfKb87AY2IovlseE6uojMu8jDqhNw4CBN1Fr4WuW788E0uUxI2Nph36znSmxByEEoTteOjuPtNnHjJ6pVpVaIuZsZtuwQKBgQDB47VhDWZyupiZdjlYuTbkXxheCLzK+ehSOOX4YXdAbKMx+JYQuGJBtPDSS0MywA27rRUyRVo52TEhDvi468Ub7R0aObMG0Q92KeogsSUhRwYqdMIOQDWPZZqpixtAwKUS355oz0HMWOu7pRRaCuoNnsYc64RZslGjaJe1jz4jsQKBgQC4MJSrhxqg1vJKB3yizeX3gU6xESWtkeiW1myszZ0AVzrOdET24nhd2tt5C/9I74sMY8DTWidRb5hK5yhTL9z20SZOLspHm+P6T1Wsv7tUduCcfyR7vjaAxykkEayzUE4rP5gBmcu+zH8fvKfdojk6ckiC9pNkaZgaM1VncDMUUwKBgDiRqEzNrRNSL82ueaLSPxq4SBK/d928tjSvFyG1xiZMy/x7a8UrFrfXA+BHRy7aa+dS43lMVLvGC5h6lsTVPSgdsT0CkqItgtZV+lJZfNzNrRXcBPZFc5sH6O0IggYNbtwn1D7+IVNuqjCQRHTU9F7O8Txk1rOY3ErR7FlzloyxAoGAFcUYLVXgndYJ+Rn9bziqz6Am7uK581Pli754RcxfnCSzPKedZxjJZT5y5lG2sKYvZx17Mv/a2dM4ytGbgImNslZyEpeRLPmN7o3l8G8Q8yDB131nkICg7IOdpze3k9IQCyiPDNFitYByHgwsQxPjc7cCPwhpz1pzsdUTaRBn2SUCgYBKz+4CvF0AS3K7IcQ1bRMDU+EwfyvJEWPGXiKIkw7+56zYA2ox0STnfH9OBakuMUtSnWJYxiKN2o/pHPUsjVpuqwlN9ro0cKE8cqNfH1iUwZcx2XJMMWzC7fkIGKsDRbhssxXwS3vXcKBDpSXCh0sPtQPzmEp0z9X+cWTKhYxIKA==" />
+        <!-- sophix热修复管理平台信息 -->
     </application>
 </manifest>

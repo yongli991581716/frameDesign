@@ -96,4 +96,6 @@ dependencies {
     api deps.network.okhttp.okhttp
     api deps.network.okhttp.logging
     api deps.network.networking.android_networking
+    //热修复
+    api deps.fix.sophix
 }

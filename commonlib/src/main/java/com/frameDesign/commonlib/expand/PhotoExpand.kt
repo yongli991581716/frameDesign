@@ -100,24 +100,13 @@ fun SimpleDraweeView.setResolutionStrategyImage(
 }
 
 
-/**
- * 设置图片url
- * @param url        url
- */
-fun SimpleDraweeView.setImageURL(
-    url: String?,
-    forceNetwork: Boolean = false
-) {
-    setImageURL(url, RequestLevel.FULL_FETCH, forceNetwork)
-}
-
 /**l
  * 设置图片url
  * @param url        url
  */
 fun SimpleDraweeView.setImageURL(
     url: String?,
-    lowestLevel: RequestLevel,
+    lowestLevel: RequestLevel = RequestLevel.FULL_FETCH,
     forceNetwork: Boolean = false
 ) {
     try {

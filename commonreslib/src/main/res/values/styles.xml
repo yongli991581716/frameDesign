@@ -23,7 +23,9 @@
     <style name="base_immersion_background" parent="base_background">
         <item name="android:fitsSystemWindows">true</item>
     </style>
-
+    <style name="base_immersion_background_white" parent="base_immersion_background">
+        <item name="android:background">@color/colorWhite</item>
+    </style>
     <style name="match_match">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

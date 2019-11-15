@@ -21,8 +21,8 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import com.frameDesign.commonlib.CommHelper
 import com.frameDesign.commonlib.R
-import com.frameDesign.commonlib.expand.px2dp
 import com.frameDesign.commonlib.expand.fdToast
+import com.frameDesign.commonlib.expand.px2dp
 
 
 /**
@@ -426,6 +426,26 @@ object SystemUtil {
     fun gotoPermissionSettings(activity: Activity?) {
         fdToast(activity?.getString(R.string.permission_refuse_hint))
         activity?.startActivity(Intent(Settings.ACTION_SETTINGS))
+    }
+
+    /**
+     * 以下代码可以跳转到应用详情，可以通过应用详情跳转到权限界面
+     */
+    fun getAppDetailSettingIntent(context: Context) {
+        val localIntent = Intent()
+        localIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        if (Build.VERSION.SDK_INT >= 9) {
+            localIntent.action = "android.settings.APPLICATION_DETAILS_SETTINGS"
+            localIntent.data = Uri.fromParts("package", context.packageName, null)
+        } else if (Build.VERSION.SDK_INT <= 8) {
+            localIntent.action = Intent.ACTION_VIEW
+            localIntent.setClassName(
+                "com.android.settings",
+                "com.android.settings.InstalledAppDetails"
+            )
+            localIntent.putExtra("com.android.settings.ApplicationPkgName", context.packageName)
+        }
+        context.startActivity(localIntent)
     }
 
 }

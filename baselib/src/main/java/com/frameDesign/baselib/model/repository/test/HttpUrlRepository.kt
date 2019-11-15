@@ -1,4 +1,4 @@
-package com.frameDesign.baselib.model.repository
+package com.frameDesign.baselib.model.repository.test
 
 import com.frameDesign.baselib.const.HttpConfig
 import com.frameDesign.baselib.model.bean.actions.ActionsBean
@@ -7,6 +7,7 @@ import com.frameDesign.baselib.model.bean.miss.NotFoundUrlMiss
 import com.frameDesign.baselib.model.bean.test.ADTest
 import com.frameDesign.baselib.model.bean.test.TestUserBean
 import com.frameDesign.baselib.model.bean.test.UserTokenBean
+import com.frameDesign.baselib.model.repository.BaseRepository
 import com.frameDesign.baselib.utils.ActionsHelp
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit

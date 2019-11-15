@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import com.frameDesign.baselib.controller.BaseActivity
-import com.frameDesign.baselib.model.repository.HttpUrlRepository
+import com.frameDesign.baselib.model.repository.test.HttpUrlRepository
+import com.frameDesign.baselib.utils.h5.H5ActionHelper
+import com.frameDesign.commonlib.expand.fdToast
 import com.frameDesign.commonlib.expand.setImageURL
 import com.frameDesign.commonlib.uitls.DialogUtils
 import com.frameDesign.commonlib.uitls.DownloadHelper
@@ -13,6 +15,7 @@ import com.frameDesign.commonlib.uitls.permission.IPermissionListener
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonlib.uitls.permission.PermissonBean
 import com.frameDesign.commonreslib.const.router.RouterLogin
+import io.reactivex.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -27,6 +30,16 @@ class MainActivity : BaseActivity() {
 
 
         loadFrescoIcon()
+
+        loadH5Action()
+    }
+
+    private fun loadH5Action() {
+        HttpUrlRepository.globalObtainH5Urls
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                fdToast("加载h5Action成功")
+            }
     }
 
     private fun loadFrescoIcon() {
@@ -92,6 +105,10 @@ class MainActivity : BaseActivity() {
 //        HttpUrlRepository.requestLogin().bindSub {
 //            tv_data.text = "name=${it.user?.name};token=${it.token}"
 //        }
+    }
+
+    fun loadWeb(view: View) {
+        H5ActionHelper.gotoNotParamsWebDemo(this@MainActivity)
     }
 
 

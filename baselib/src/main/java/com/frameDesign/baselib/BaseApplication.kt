@@ -11,6 +11,8 @@ import com.frameDesign.commonlib.uitls.DownloadHelper
 import com.frameDesign.commonlib.uitls.permission.AndPermissionProduct
 import com.frameDesign.commonlib.uitls.permission.PermissionFactory
 import com.frameDesign.commonreslib.const.ConstConfig
+import com.umeng.commonsdk.UMConfigure
+import com.umeng.socialize.PlatformConfig
 
 
 /**
@@ -50,7 +52,10 @@ open class BaseApplication : MultiDexApplication() {
         PermissionFactory.init(AndPermissionProduct())
         //图片库初始化
         Fresco.initialize(mCtx, FrescoHelp.getConfig(mCtx))
+        //初始化umeng
+        initUmengConfig()
     }
+
 
     open fun initDatas() {
 
@@ -67,6 +72,22 @@ open class BaseApplication : MultiDexApplication() {
         }
 
         ARouter.init(mCtx)
+    }
+
+    /**
+     * 初始化umeng
+     */
+    private fun initUmengConfig() {
+        UMConfigure.init(
+            mCtx, "5c08a168f1f55653a80000f6", "umeng",
+            UMConfigure.DEVICE_TYPE_PHONE, ""
+        )
+
+        //示例，目前支持微信、微信朋友圈
+        PlatformConfig.setWeixin(
+            "wx59d85df930666a5e",
+            "6f18f6326c69d43159df29a3a7c6419b"
+        )
     }
 
     /**

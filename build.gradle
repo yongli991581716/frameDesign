@@ -93,6 +93,10 @@ buildscript {
                     'umeng': [
                             'common'   : 'com.umeng.umsdk:common:2.0.0',
                             'analitics': 'com.umeng.umsdk:analytics:8.0.0',
+                            'analitics': 'com.umeng.umsdk:analytics:8.0.0',
+                            'analitics': 'com.umeng.umsdk:analytics:8.0.0',
+                            'analitics': 'com.umeng.umsdk:analytics:8.0.0',
+                            'analitics': 'com.umeng.umsdk:analytics:8.0.0',
                     ],
             ],
             'async'     : [
@@ -102,17 +106,17 @@ buildscript {
                     ],
             ],
             'network'   : [
-                    'retrofit': [
+                    'retrofit'  : [
                             'retrofit'        : "com.squareup.retrofit2:retrofit:${versions.retrofit_version}",
                             'retrofit_gson'   : "com.squareup.retrofit2:converter-gson:${versions.retrofit_version}",// retrofit json 解析库(Gson)
                             'retrofit_adapter': "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit_version}",
                     ],
-                    'okhttp'  : [
+                    'okhttp'    : [
                             'okhttp' : "com.squareup.okhttp3:okhttp:${versions.okhttp_version}",
                             'logging': "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_version}",
                     ],
-                    'networking':[
-                            'android_networking':'com.amitshekhar.android:android-networking:1.0.2',
+                    'networking': [
+                            'android_networking': 'com.amitshekhar.android:android-networking:1.0.2',
                     ],
             ],
             'immersion' : [
@@ -121,6 +125,7 @@ buildscript {
             'assist'    : [
                     'swipeback': 'me.imid.swipebacklayout.lib:library:1.1.0',
                     'gson'     : 'com.google.code.gson:gson:2.8.6',
+                    'jsbridge' : 'com.github.lzyzsd:jsbridge:1.0.4',
             ],
             'view'      : [
                     'smartrefreshlayout': 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0',//1.0.5及以前版本的老用户升级需谨慎，API改动过大

@@ -85,6 +85,7 @@ dependencies {
     //辅助库
     api deps.assist.swipeback
     api deps.assist.gson
+    api deps.assist.jsbridge
     //view库
     api deps.view.smartrefreshlayout
     api deps.view.Smartrefreshheader

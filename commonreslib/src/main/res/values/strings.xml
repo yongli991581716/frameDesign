@@ -5,5 +5,9 @@
     <string name="cancel">取消</string>
     <string name="firm">确认</string>
     <string name="known">知道了</string>
+    <string name="pls_install_qq">当前设备无法检测的\'手机QQ\', 请安装后再试!</string>
+    <string name="pls_install_wx">当前设备无法检测的\'手机微信\', 请安装后再试!</string>
+    <string name="permission_apply">权限申请</string>
+    <string name="go_to_setting">去设置</string>
     <string name="permission_refuse_hint">在设置-应用-中清协同助手-权限中开启相关权限，以正常使用拍照、定位、扫一扫等功能</string>
 </resources>

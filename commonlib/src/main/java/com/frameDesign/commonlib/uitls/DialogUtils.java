@@ -6,15 +6,16 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.view.Gravity;
+
 import com.frameDesign.commonlib.R;
-import com.frameDesign.commonlib.views.dialog.FDProgressDialog;
 import com.frameDesign.commonlib.views.dialog.FDDialog;
+import com.frameDesign.commonlib.views.dialog.FDProgressDialog;
 
 /**
  * 对话框工具
  *
  * @author liyong
- * @date  2018/1/22.
+ * @date 2018/1/22.
  */
 public class DialogUtils {
 
@@ -40,15 +41,11 @@ public class DialogUtils {
         }
     }
 
-    public static Boolean dialogShowing(Dialog dialog)
-
-    {
+    public static Boolean dialogShowing(Dialog dialog) {
         return dialog != null && dialog.isShowing();
     }
 
-    public static FDDialog createNormalDialog(Activity activity, String msg)
-
-    {
+    public static FDDialog createNormalDialog(Activity activity, String msg) {
         FDDialog dialog = new FDDialog(activity);
         dialog.setMessage(msg);
         dialog.setNegativeButton(R.string.known, null);
@@ -63,9 +60,7 @@ public class DialogUtils {
      */
     public static FDDialog createAlertDialog(Activity activity, int titleId, int messageId,
                                              int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                             int rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                             int rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = createAlertDialog(activity, messageId, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(activity.getResources().getString(titleId));
         return dialog;
@@ -76,9 +71,7 @@ public class DialogUtils {
      */
     public static FDDialog createAlertDialog(Activity activity, String title, String message,
                                              String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(title);
         return dialog;
@@ -89,9 +82,7 @@ public class DialogUtils {
      */
     public static FDDialog createLeftDialog(Activity activity, String title, String message,
                                             String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                            String rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                            String rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(title);
         dialog.setTxtGravity(Gravity.LEFT);
@@ -103,9 +94,7 @@ public class DialogUtils {
      */
     public static FDDialog createAlertDialog(Activity activity, int titleId, String message,
                                              String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         dialog.setTitle(activity.getResources().getString(titleId));
         return dialog;
@@ -116,9 +105,7 @@ public class DialogUtils {
      */
     public static FDDialog createAlertDialog(Activity activity, String message,
                                              String leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                             String rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                             String rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = createDialog(activity, message, leftButton, onLeftClickListener, rightButton, onRightClickListener);
         return dialog;
     }
@@ -156,9 +143,7 @@ public class DialogUtils {
      */
     public static FDDialog createAlertDialog(Activity activity, int message,
                                              int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                             int rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                             int rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = new FDDialog(activity);
         dialog.setMessage(message);
         if (leftButton > 0) {
@@ -180,9 +165,7 @@ public class DialogUtils {
      */
     public static FDDialog createIconDialog(Activity activity, int icon, int message,
                                             int leftButton, DialogInterface.OnClickListener onLeftClickListener,
-                                            int rightButton, DialogInterface.OnClickListener onRightClickListener)
-
-    {
+                                            int rightButton, DialogInterface.OnClickListener onRightClickListener) {
         FDDialog dialog = new FDDialog(activity);
         dialog.setTitleIcon(icon);
         dialog.setMessage(message);
@@ -240,4 +223,30 @@ public class DialogUtils {
     }
 
 
+    /**
+     * 普通权限拒绝提示对话框
+     */
+    public static FDDialog createSettingDialog(Activity activity) {
+        return createDialog(activity, (dialog1, which) -> {
+
+        });
+    }
+
+
+    private static FDDialog createDialog(Activity activity, DialogInterface.OnClickListener onClickListener) {
+        FDDialog dialog = new FDDialog(activity);
+        dialog.setTitle(R.string.permission_apply);
+        dialog.setMessage(R.string.permission_refuse_hint);
+        dialog.setNegativeButton(R.string.cancel, (dialog12, which) -> {
+        });
+
+        dialog.setPositiveButton(R.string.go_to_setting, (dialog12, which) -> {
+            SystemUtil.INSTANCE.getAppDetailSettingIntent(activity);
+            //activity.startActivity(new Intent(Settings.ACTION_SETTINGS));
+        });
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
+
+        return dialog;
+    }
 }

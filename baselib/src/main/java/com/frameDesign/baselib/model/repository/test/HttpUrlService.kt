@@ -1,4 +1,4 @@
-package com.frameDesign.baselib.model.repository
+package com.frameDesign.baselib.model.repository.test
 
 import com.frameDesign.baselib.model.bean.actions.ActionsBean
 import com.frameDesign.baselib.model.bean.actions.ActionsH5Bean

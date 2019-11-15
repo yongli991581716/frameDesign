@@ -8,6 +8,7 @@ import com.frameDesign.baselib.model.bean.miss.DefMiss
 import com.frameDesign.baselib.model.bean.miss.EmptyDataMiss
 import com.frameDesign.baselib.model.bean.miss.NetMiss
 import com.frameDesign.baselib.model.bean.miss.NotFoundUrlMiss
+import com.frameDesign.baselib.model.repository.test.HttpUrlRepository
 import com.frameDesign.baselib.utils.ActionsHelp
 import com.frameDesign.commonlib.uitls.NetUtil
 import com.frameDesign.commonlib.uitls.StringUtils

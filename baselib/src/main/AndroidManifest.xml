@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.frameDesign.baselib">
+        package="com.frameDesign.baselib">
 
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+
+        <activity
+                android:name=".controller.WebH5Activity"
+                android:configChanges="screenSize|keyboardHidden|orientation"
+                android:screenOrientation="portrait" />
+    </application>
 </manifest>

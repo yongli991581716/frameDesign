@@ -125,8 +125,8 @@ internal object UatApi : IApi {
 
 internal object PubApi : IApi {
 
-    override val global_url = "https://xxx"
+    override val global_url = "https://appapi.ccuol.com/v1.0/apiDictionary"
 
-    override val global_h5_url = "https://xxx"
+    override val global_h5_url = "https://marketing-h5.ccuol.com/v1.0/sitemap.json"
 
 }

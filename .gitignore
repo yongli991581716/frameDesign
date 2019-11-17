@@ -12,3 +12,4 @@
 /build
 /captures
 .externalNativeBuild
+/baselib/src/main/java/com/frameDesign/baselib/const/HttpConfig.kt

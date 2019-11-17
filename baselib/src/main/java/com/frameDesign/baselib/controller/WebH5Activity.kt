@@ -26,7 +26,7 @@ import org.jetbrains.anko.toast
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
- * 网络服务界面
+ * web服务界面
  *
  * @author liyong
  * @time 2018/11/8

@@ -86,7 +86,7 @@ object H5Helper {
         val map = HashMap<String, String>()
         map["osType"] = "Android"
         map["osVersion"] = Build.VERSION.SDK_INT.toString() + ""
-        map["appName"] = "ZQKH-BreastButler"
+        map["appName"] = "frameDesign"
         map["version"] = "$vName"
         map["version_code"] = "$vCode"
         map["Authorization"] = HttpConfig.getToken()

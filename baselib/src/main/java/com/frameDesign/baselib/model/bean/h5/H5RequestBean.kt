@@ -4,7 +4,7 @@ import java.io.Serializable
 
 
 /**
- * Created by gaoyang on 2017/12/28.
+ * Created by liyong on 2017/12/28.
  */
 open class H5RequestBean : Serializable {
     var rel: String? = null

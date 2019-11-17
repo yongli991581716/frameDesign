@@ -9,7 +9,7 @@ import io.reactivex.disposables.Disposable
 /**
  * ..
  *
- * @author JustBlue
+ * @author liyong
  * @time 2019/1/21
  */
 class GlobalLayoutOb(val view: View) : Observable<String>() {

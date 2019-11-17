@@ -14,7 +14,7 @@ import retrofit2.http.*
 /**
  * ..
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/15
  */
 interface HttpUrlService {

@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap
 /**
  * 创建Retrofit工具类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 object RetrofitHelp {

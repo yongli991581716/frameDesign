@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 全局url接口仓库
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/15
  */
 object HttpUrlRepository : BaseRepository<HttpUrlService>() {

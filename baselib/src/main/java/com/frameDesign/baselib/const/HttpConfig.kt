@@ -18,23 +18,12 @@ object HttpConfig : SPBase("fd-yx_gj-http") {
     private const val JSON_TEMP = "{\"code\":$SUCCESS_CODE,\"message\":\"获取成功\",\"data\":%1\$s}"
     private const val JSON_TEMP_NO_DATA = "{\"code\":$SUCCESS_CODE,\"message\":\"获取成功\"}"
 
-//    private const val DEF_TOKEN = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjMzAwYzgxNGZiN" +
-//            "Dc3NGEzNDgxNTMzOWFmYjhjZTA0N2YiLCJhY2NvdW50SWQiOiJqYTE" +
-//            "4Njg4NWEwZTA1NGNmNWJiZWZkNzFmZjcyNmRkZTQiLCJjb2RlIjpud" +
-//            "WxsLCJjcmVhdGVkIjoxNTM5NjcyNjM4OTcyLCJuaWNrTmFtZSI6bnV" +
-//            "sbCwicm9sZXMiOm51bGwsIm1vYmlsZSI6bnVsbCwiaWQiOiJjMzAwY" +
-//            "zgxNGZiNDc3NGEzNDgxNTMzOWFmYjhjZTA0N2YiLCJhdmF0YXIiOiJ" +
-//            "jMzAwYzgxNGZiNDc3NGEzNDgxNTMzOWFmYjhjZTA0N2YiLCJleHAiO" +
-//            "jE1NzEyMDg2MzgsInVzZXJJZCI6ImMzMDBjODE0ZmI0Nzc0YTM0ODE" +
-//            "1MzM5YWZiOGNlMDQ3ZiJ9.yDha5ALF5fFSOrVKC46xeaVB4L1ZbkP5" +
-//            "vCu1FR5gKOgn8K4rcZrEcS-cvTa0cm4BDjY9CsPWFbcPI1duAlybfQ"
-
     private const val DEF_TOKEN = "FD_DEF_TOKEN"
 
     @Volatile
     private var currentToken = DEF_TOKEN
 
-    internal const val BASE_URL = "http://zq.web.cn/"
+    internal const val BASE_URL = "http://xxxx/"
 
     const val FLAVOR_DEV = "flavor_dev"
     const val FLAVOR_TEST = "flavor_test"
@@ -106,48 +95,38 @@ interface IApi {
 
     val global_url: String
 
-//    val project_url: String
-
     val global_h5_url: String
 
 }
 
 internal object DevApi : IApi {
 
-    override val global_url = "http://dev-appapi.ccuol.net/v1.0/apiDictionary"
+    override val global_url = "http://xxxx"
 
-//    override val project_url = "http://test-marketing-h5.ccuol.net/contentDetails.html"
-
-    override val global_h5_url = "http://dev-marketing-h5.ccuol.net/v1.0/sitemap.json"
+    override val global_h5_url = "http://xxx"
 
 }
 
 internal object TestApi : IApi {
 
-    override val global_url = "http://test-appapi.ccuol.net/v1.0/apiDictionary"
+    override val global_url = "http://xxx"
 
-//    override val project_url = "http://test-marketing-h5.ccuol.net/contentDetails.html"
-
-    override val global_h5_url = "http://test-marketing-h5.ccuol.net/v1.0/sitemap.json"
+    override val global_h5_url = "http://xxx"
 
 }
 
 internal object UatApi : IApi {
 
-    override val global_url = "https://appapi.ccuol.cn/v1.0/apiDictionary"
+    override val global_url = "https://xxx"
 
-//    override val project_url = "http://test-marketing-h5.ccuol.net/contentDetails.html"
-
-    override val global_h5_url = "https://marketing-h5.ccuol.cn/v1.0/sitemap.json"
+    override val global_h5_url = "https://xxx"
 
 }
 
 internal object PubApi : IApi {
 
-    override val global_url = "https://appapi.ccuol.com/v1.0/apiDictionary"
+    override val global_url = "https://xxx"
 
-//    override val project_url = "http://test-marketing-h5.ccuol.net/contentDetails.html"
-
-    override val global_h5_url = "https://marketing-h5.ccuol.com/v1.0/sitemap.json"
+    override val global_h5_url = "https://xxx"
 
 }

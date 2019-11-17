@@ -3,7 +3,7 @@ package com.frameDesign.baselib.model.bean.actions
 import java.io.Serializable
 
 /**
- * Created by gaoyang on 2017/12/21.
+ * Created by liyong on 2017/12/21.
  */
 class ActionsH5BeanItem : Serializable {
     var rel: String = ""

@@ -17,7 +17,7 @@ import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 /**
  * 用于拦截okHttp请求
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 internal object DataIntercept : Interceptor {

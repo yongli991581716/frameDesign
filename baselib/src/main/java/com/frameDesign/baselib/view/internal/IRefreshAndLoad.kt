@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 /**
  * ..
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 interface IRefreshAndLoad {

@@ -39,7 +39,7 @@ class FDData<T> : DataSource<T> {
 /**
  * 集合数据结构
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 class FDList<T> : DataSource<List<T>> {
@@ -64,7 +64,7 @@ class FDList<T> : DataSource<List<T>> {
 /**
  * 分页数据二级实体封装类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 class Page<T> : DataSource<List<T>> {
@@ -109,7 +109,7 @@ class Page<T> : DataSource<List<T>> {
 /**
  * 集合数据结构
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 class FDPage<T> : DataSource<Page<T>> {

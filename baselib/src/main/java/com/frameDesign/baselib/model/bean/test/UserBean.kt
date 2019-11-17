@@ -5,7 +5,7 @@ import com.frameDesign.baselib.model.bean.internal.DataEmpty
 /**
  * 用户信息列表
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/19
  */
 class UserBean : DataEmpty {

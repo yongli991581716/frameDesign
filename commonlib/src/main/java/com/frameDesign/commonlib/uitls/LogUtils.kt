@@ -7,7 +7,7 @@ import com.orhanobut.logger.PrettyFormatStrategy
 
 
 /**
- * Created by gaoyang on 2017/12/20.
+ * Created by liyong on 2017/12/20.
  * 日志工具
  */
 object LogUtils {

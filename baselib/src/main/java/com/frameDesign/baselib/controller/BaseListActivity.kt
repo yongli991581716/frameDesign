@@ -25,7 +25,7 @@ import org.jetbrains.anko.findOptional
 /**
  * ..
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 abstract class BaseListActivity : BaseActivity(),

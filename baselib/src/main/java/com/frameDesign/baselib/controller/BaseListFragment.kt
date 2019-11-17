@@ -30,7 +30,7 @@ import org.jetbrains.anko.findOptional
 /**
  * 分页Fragment基类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 abstract class BaseListFragment : BaseFragment(),

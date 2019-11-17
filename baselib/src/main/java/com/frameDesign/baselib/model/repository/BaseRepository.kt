@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 接口仓库基类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 open class BaseRepository<Service> {

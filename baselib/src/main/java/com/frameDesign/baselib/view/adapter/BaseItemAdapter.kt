@@ -23,7 +23,7 @@ import kotlin.math.absoluteValue
 /**
  * 自定义RecyclerView.Adapter基类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 abstract class BaseItemAdapter<T, VH : BaseViewHolder>(@LayoutRes layoutId: Int, data: List<T>) :
@@ -302,7 +302,7 @@ inline fun <T> BaseQuickAdapter<T, out BaseViewHolder>.concatData(
 /**
  * 添加View DataBinding的Adapter
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 abstract class BaseDataBindingAdapter<T, DB : ViewDataBinding>(@LayoutRes layoutId: Int) :
@@ -322,7 +322,7 @@ abstract class BaseDataBindingAdapter<T, DB : ViewDataBinding>(@LayoutRes layout
 /**
  * 添加View DataBinding适配的ViewHolder
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/23
  */
 open class DataBindingVH<DB : ViewDataBinding>(val itemBind: DB) : BaseViewHolder(itemBind.root)

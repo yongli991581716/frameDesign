@@ -79,14 +79,14 @@ open class BaseApplication : MultiDexApplication() {
      */
     private fun initUmengConfig() {
         UMConfigure.init(
-            mCtx, "5c08a168f1f55653a80000f6", "umeng",
+            mCtx, "xxx", "umeng",
             UMConfigure.DEVICE_TYPE_PHONE, ""
         )
 
         //示例，目前支持微信、微信朋友圈
         PlatformConfig.setWeixin(
-            "wx59d85df930666a5e",
-            "6f18f6326c69d43159df29a3a7c6419b"
+            "xxx",
+            "xxx"
         )
     }
 

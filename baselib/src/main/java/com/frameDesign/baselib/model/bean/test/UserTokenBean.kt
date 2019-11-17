@@ -5,7 +5,7 @@ import com.frameDesign.baselib.model.bean.internal.DataEmpty
 /**
  * ..
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/19
  */
 class UserTokenBean : DataEmpty {

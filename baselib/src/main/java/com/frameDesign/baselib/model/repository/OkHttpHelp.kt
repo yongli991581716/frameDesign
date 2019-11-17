@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 /**
  * 用于创建okHttp客户端操作类
  *
- * @author JustBlue
+ * @author liyong
  * @time 2018/10/12
  */
 internal object OkHttpHelp {

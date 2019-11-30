@@ -1,4 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
-    <base-config cleartextTrafficPermitted="true"/>
+
+    <!--7.0以下 应用默认信任 系统预装证书和用户安装证书
+        7.0及以上 应用默认仅信任 系统预装证书
+        此文件对7.0及以上系统有效， -->
+
+    <!-- 基础网络安全配置 设置信任系统级别证书  cleartextTrafficPermitted：允许明文传输-->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+            <!--            <certificates src="user" />-->
+        </trust-anchors>
+    </base-config>
+
+
+    <!-- debug 模式下网络安全配置 设置信任系统、用户级别默认证书（此处本人p20手机已添加Charles代理证书，故可以）-->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+
+    <!-- 域名网络安全配置 -->
+<!--    <domain-config>-->
+<!--        <domain includeSubdomains="true">ccuol.com</domain>-->
+<!--        <trust-anchors>-->
+<!--            <certificates src="@raw/charles_certificate" />-->
+<!--        </trust-anchors>-->
+<!--    </domain-config>-->
 </network-security-config>
